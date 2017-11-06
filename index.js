@@ -1,5 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var app = express();
@@ -22,8 +23,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
 // Routes
+
 app.use("/", require("./routes/home"));
-app.use('/posts', require('./routes/posts'));
+app.use("/posts", require("./routes/posts"));
+app.use("/users", require("./routes/users"));
 
 // Port setting
 app.listen(4000, function(){
