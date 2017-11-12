@@ -15,10 +15,17 @@
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/posts">bCODE</a></li>
+        <li><a href="/users">Users</a></li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/users">Users</a></li>
+        <% if(isAuthenticated){ %>
+        <li><a href="/users/<%= currentUser.username %>">My Account</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <% } else { %>
         <li><a href="/users/new">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+        <% } %>
       </ul>
     </div>
   </div>
