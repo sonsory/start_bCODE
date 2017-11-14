@@ -1,33 +1,207 @@
-<!DOCTYPE html>
 <!-- view/posts/new.ejs -->
+
+<!DOCTYPE html>
 <html>
 	<head>
 		<% include ../partials/head %>
-	</head>
-	<body>
 		<% include ../partials/nav %>
 
-		<div class="container post post-new">
-			<% include ./partials/header %>
+	</head>
+	<body>
+		<div class="container post post-edit">
+		<% include ./partials/header %>
+		</div>
 
-			<div class="buttons">
-				<a class="btn btn-default" href="/posts">Back</a>
-			</div>
+
+    <% include ../partials/camera %>
+
+		      <div id="container1">
+						<p>
+						<div id="container" style="text-align:center;">
+		        <div class="select" style="display: none;">
+		          <label for="audioSource"><%#Audio input source: %></label><select id="audioSource"></select>
+		        </div>
+
+		        <div class="select" style="display: none;">
+		          <label for="audioOutput"><%#Audio output destination: %></label><select id="audioOutput"></select>
+		        </div>
+
+		        <div class="select">
+		          <label for="videoSource" style= "width: 100px">Scan source: </label><select id="videoSource"></select> <%#  %>
+		          <button id="scanButton">bCODE scan</button><button id="setButton">bCODE setting</button>
+		        </div>
+					</div> <!-- container -->
+					<p>
+
+		        <div id="scan" style="text-align:center; border:1px solid #ffffff;">
+		          <video id="video" style="width:141px; height:188px;border: 1px solid #ffffff;"  autoplay></video><br> <%#style="width:150px; height:267px" style="width:320px; height:240px" %>
+		          <button id="snap">bCODE scan</button>
+		          <div class="img">
+		            <div class="containerVideo" style="margin-left: auto;margin-right: auto;margin-top:-22px;">
+
+
+		              <div class="cardVideo">
+
+		                <div id="tile11" class="myboxVideo" style="background:white;">
+		                </div>
+
+		                <div id="tile22" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile33" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile44" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile55" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile66" class="myboxVideo" style="background:black;" >
+		                </div>
+
+		                <div id="tile77" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile88" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile99" class="myboxVideo" style="background:black;">
+		                </div>
+
+		              </div>
+		            </div>
+		          </div> <%# div img %>
+		        </div>
+
+
+
+
+		<%# if ( canvas != "") {%>
+
+		        <div id="view" style="text-align:center; border:2px solid #ffffff;">
+		        <canvas id="canvas" style="width:150px;height:150px;text-align:center;border: 1px solid #ffffff;" width="150" height="150"></canvas><br>
+		        <button id="backToScan">backToScan</button>
+		        <div style="width:100%;" id="tempOutput"></div>
+		        <div style="width:100%;" id="tempOutput2"></div>
+		        </div>
+
+
+		        <div id="set">
+		          <div class="container1" style="height: 300px;">
+
+		            <div class="card">
+
+		              <div id="tile1" class="mybox" style="background:white;">
+		              </div>
+
+		              <div id="tile2" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile3" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile4" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile5" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile6" class="mybox" style="background:black;" >
+		              </div>
+
+		              <div id="tile7" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile8" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile9" class="mybox" style="background:black;">
+		              </div>
+
+		            </div>
+		          </div>
+
+		      </div>
+
+
+
+
+
+
+
+		  <script>
+
+		  console.log("test3.ejs - context : ",  canvas.getContext('2d') )
+		  console.log("id:tile6.value :", document.getElementById("tile6").style)
+		  var tile6 = document.getElementById("tile6")
+		  console.log("id:tile6.value :", tile6.value)
+
+
+		  </script>
+
+		<%# } %>
+		<%#
+		  <p class="small"><b>Note:</b> If you hear a reverb sound your microphone is picking up the output of your speakers/headset, lower the volume and/or move the microphone further away from your speakers/headset.</p>
+
+		  <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/devices/input-output" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>%>
+		</div>
+
+
+
+
+
+
+
+		<div class="container post post-new">
+
+
 
 			<form class="post-form form-horizontal" action="/posts" method="post">
+
+
+
+
+
+
+
 				<div class="contentBox">
-					<h3 class="contentBoxTop">New Post</h3>
+					<h3 class="contentBoxTop">New bCODE</h3>
 					<fieldset>
-						<div class="form-group">
+						<div class="form-group <%= (errors.title)?'has-error':'' %>">
 							<label for="title" class="col-sm-2 control-label">Title</label>
 							<div class="col-sm-10">
-								<input class="form-control" type="text" id="title" name="title" value="">
+								<input class="form-control" type="text" id="title" name="title" value="<%= post.title %>">
+								<% if(errors.title){ %>
+									<span class="help-block"><%= errors.title.message %></span>
+								<% } %>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="body" class="col-sm-2 control-label">Body</label>
+						<div class="form-group <%= (errors.bcode)?'has-error':'' %>">
+							<label for="bcode" class="col-sm-2 control-label">bCODE</label>
 							<div class="col-sm-10">
-								<textarea class="form-control" id="body" name="body" rows="5"></textarea>
+								<input class="form-control" type="text" id="bcode" name="bcode" value="<%= post.bcode %>">
+								<% if(errors.bcode){ %>
+									<span class="help-block"><%= errors.bcode.message %></span>
+								<% } %>
+							</div>
+						</div>
+						<div class="form-group <%= (errors.link)?'has-error':'' %>">
+							<label for="link" class="col-sm-2 control-label">Link</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" id="link" name="link" value="<%= post.link %>">
+								<% if(errors.link){ %>
+									<span class="help-block"><%= errors.link.message %></span>
+								<% } %>
+							</div>
+						</div>
+						<div class="form-group <%= (errors.body)?'has-error':'' %>">
+							<label for="body" class="col-sm-2 control-label">Explain</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" id="body" name="body" rows="5"><%= post.body %></textarea>
+								<% if(errors.body){ %>
+									<span class="help-block"><%= errors.body.message %></span>
+								<% } %>
 							</div>
 						</div>
 					</fieldset>
@@ -35,7 +209,47 @@
 				<div class="buttons">
 					<button type="submit" class="btn btn-default">Submit</button>
 				</div>
+				<% if(errors.unhandled){ %>
+					<div class="alert alert-danger">
+					<%= errors.unhandled %>
+				<% } %>
 			</form>
-		</div>
+
+			<table class="table table-striped posts">
+				<thead>
+					<tr>
+						<th class="title">Title</th>
+						<th class="author">Author</th>
+						<th class="date">Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if(posts == null || posts.length == 0){ %>
+					<tr>
+						<td class="noData" colspan=100>There is no data to show! </td>
+					</tr>
+					<% } %>
+					<% posts.forEach(function(post){ %>
+						<tr>
+							<td class="title">
+								<a href="/posts/<%= post._id %>"><div class="ellipsis"><%= post.title %></div></a>
+							</td>
+							<td class="author">
+								<div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
+							</td>
+							<td class="date">
+								<%= post.createdDate %>
+							</td>
+						</tr>
+					<% }) %>
+				</tbody>
+			</table>
+
+			<script src="/js/camera3/adapter.js"></script> <%# 이거하고 바로 아래 스크립트 두개 적용안했을 때, 맥에서는 카메라가 작동되지만, 폰에서는 안됐음 %>
+			<script src="/js/camera3/common.js"></script>
+			<script src="/js/camera3/main.js"></script>
+			<script src="/js/list.js"></script>
+
+		</div> <!-- container end -->
 	</body>
 	</html>

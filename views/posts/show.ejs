@@ -11,10 +11,12 @@
 
 			<div class="buttons">
 				<a class="btn btn-default" href="/posts">Back</a>
+				<% if(isAuthenticated && currentUser.id == post.author.id) { %>
 				<a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
 				<form action="/posts/<%= post._id %>?_method=delete" method="post">
 					<a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
 				</form>
+				<% } %>
 			</div>
 
 			<div class="contentBox">
@@ -27,6 +29,12 @@
 								<div><span>Update</span> : <%= post.updatedDate %> <%= post.updatedTime %></div>
 							<% } %>
 						</div> <!-- post-info end -->
+					</div> <!-- col end -->
+					<div class="col-sm-8 com-sm-pull-4">
+						<div class="post-body"><a href= "<%= post.link %>"><%= post.link %></a></div>
+					</div> <!-- col end -->
+					<div class="col-sm-8 com-sm-pull-4">
+						<div class="post-body"><%= post.bcode %></div>
 					</div> <!-- col end -->
 					<div class="col-sm-8 com-sm-pull-4">
 						<div class="post-body"><%= post.body %></div>

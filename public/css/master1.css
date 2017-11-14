@@ -1,5 +1,4 @@
 /* global style */
-
 form label{
   padding: 3px;
   margin-bottom: 0;
@@ -17,19 +16,13 @@ form .form-control{
 form fieldset{
   margin: 7px 0 1px;
   padding: 0px 15px;
+
 }
 form .form-group{
   margin: 0;
   padding-bottom: 6px;
 }
-.ellipsis{
-  display: block;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.form-horizontal .control-label {
+.form-horizontal .control-label{
   padding-top: 5px;
   text-align: left;
 }
@@ -40,11 +33,10 @@ form .form-group{
 .buttons form{
   display: inline-block;
 }
-.buttons .btn-default{
+.bouttons .btn-default{
   min-width: 55px;
   color: #165751;
-  border: 1px solid #ccc;
-  border-right: 1px solid #aaa;
+  border-right: 1px solid #ccc;
   border-bottom: 1px solid #aaa;
   border-radius: 4px;
   padding: 5px 10px;
@@ -65,7 +57,7 @@ form .form-group{
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
-.contentBoxTop {
+.contentBoxTop{
   font-size: 14px;
   font-weight: 600;
   margin: 0;
@@ -73,28 +65,30 @@ form .form-group{
   background-color: #F5F5F5;
   padding: 6px 15px;
 }
+.ellipsis{
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /* home style */
 .home h1{
   color: darkseagreen;
 }
-.home-login{
-  max-width: 330px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-}
 
 /* post style */
 .post {
   max-width: 670px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 12px;
 }
 .post h2 {
   color: tomato;
   text-align: center;
 }
-.post .post-body {
+.post .post-body{
   white-space: pre-line;
   padding: 6px 15px 20px;
 }
@@ -113,7 +107,7 @@ form .form-group{
 .post .post-info>div:first-child{
   border-top: none;
 }
-.post .post-info span{
+.post .post-span{
   display: inline-block;
   width: 40px;
 }
@@ -141,11 +135,11 @@ form .form-group{
 .post .posts tbody tr:nth-child(odd){
   background-color: #F4FFFF;
 }
-.post .posts tbody .noData{
+.post .posts tbody .noDate{
   background-color: #FFFFFF;
   text-align: center;
 }
-.post .posts .author{
+.post .post .author{
   text-align: center;
   width: 80px;
 }
@@ -154,43 +148,12 @@ form .form-group{
   width: 100px;
   padding-right: 15px;
 }
-.post-new,
-.post-edit{
+.post-new
+{
   max-width: 520px;
 }
 
-/* user style */
-.user {
-  max-width: 320px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-}
-.user-index ul{
-  margin: 0;
-  padding: 3px 12px;
-}
-.user-index ul:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.user-index ul li{
-  display: inline-block;
-  list-style-type: none;
-  float:left;
-}
-.user-index ul li a{
-  display: inline-block;
-  text-decoration:none;
-  margin: 3px;
-  background-color: #eee;
-  padding: 3px 10px;
-  border-radius: 3px;
-}
-.user-index ul li a:hover{
-  background-color: #ccc;
-}
-.user-edit hr{
-  margin-top: 5px;
-  margin-bottom: 11px;
+.post-edit
+{
+  max-width: 520px;
 }

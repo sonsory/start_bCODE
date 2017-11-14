@@ -3,6 +3,7 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/User");
+var util = require("../util");
 
 // Index
 router.route("/").get(function(req, res){
@@ -26,7 +27,7 @@ router.post("/", function(req, res){
 	User.create(req.body, function(err, user){
 		if(err) {
 			req.flash("user", req.body);
-			req.flash("errors", parseError(err))
+			req.flash("errors", util.parseError(err))
 			return res.redirect("/users/new");
 		}
 		res.redirect("/users");
@@ -71,7 +72,11 @@ router.put("/:username", function(req, res, next){
 
 		// save updated user
 		user.save(function(err, user){
-			if(err) return res.json(err);
+			if(err) {
+				req.flash("user", req. body);
+				req.flash("errors", util.parseError);
+				return res.redirect("/users/"+req.params.username+"/edit");
+			}
 			res.redirect("/users/"+req.params.username);
 		});
 	});
@@ -80,20 +85,6 @@ router.put("/:username", function(req, res, next){
 module.exports = router;
 
 
-function parseError(errors){
-	var parsed = {};
-	if(errors.name == 'ValidationError'){
-		for(var name in errors.errors){
-			var validationError = errors.errors[name];
-			parsed[name] = { message:validationError.message };
-		}
-	} else if(errors.code == "11000" && errors.errmsg.indexOf("username") > 0){
-		parsed.username = { message:"This username already exists!" };
-	} else {
-		parsed.unhandled = JSON.srtingify(errors);
-	}
-	return parsed;
-}
 
 /* 171104 표현하기가 쉽지 않은데,
 걍 생각나는 대로 적어본다면

@@ -18,16 +18,40 @@
 				<div class="contentBox">
 					<h3 class="contentBoxTop">Edit Post</h3>
 					<fieldset>
-						<div class="form-group">
+						<div class="form-group <%= (errors.title)?'has-error':'' %>">
 							<label for="title" class="col-sm-2 control-label">Title</label>
 							<div class="col-sm-10">
 								<input class="form-control" type="text" id="title" name="title" value="<%= post.title %>">
+								<% if(errors.title) { %>
+									<span class="help-block"><%= errors.title.message %></span>
+								<% } %>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group <%= (errors.link)?'has-error':'' %>">
+							<label for="link" class="col-sm-2 control-label">Link</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" id="link" name="link" value="<%= post.link %>">
+								<% if(errors.link) { %>
+									<span class="help-block"><%= errors.link.message %></span>
+								<% } %>
+							</div>
+						</div>
+						<div class="form-group <%= (errors.bcode)?'has-error':'' %>">
+							<label for="bcode" class="col-sm-2 control-label">bCODE</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" id="bcode" name="bcode" value="<%= post.bcode %>">
+								<% if(errors.bcode) { %>
+									<span class="help-block"><%= errors.bcode.message %></span>
+								<% } %>
+							</div>
+						</div>
+						<div class="form-group <%= (errors.body)?'has-error':'' %>">
 							<label for="body" class="col-sm-2 control-label">Body</label>
 							<div class="col-sm-10">
 								<textarea class="form-control" id="body" name="body" row="5"><%= post.body %></textarea>
+								<% if(errors.body){ %>
+									<span class="help-block"><%= errors.body.message %></span>
+								<% } %>
 							</dvi>
 						</div>
 					</fieldset>
@@ -35,7 +59,13 @@
 				<div class="buttons">
 					<button type="submit" class="btn btn-default">Submit</button>
 				</div>
+				<% if(errors.unhandled){ %>
+					<div class="alert alert-danger">
+						<%= errors.unhandled %>
+					</div>
+				<% } %>
 			</form>
+
 		</div> <!-- container end -->
 	</body>
 </html>
