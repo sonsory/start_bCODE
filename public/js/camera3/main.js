@@ -1,3 +1,4 @@
+
 /*
 *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
 *
@@ -5,6 +6,7 @@
 *  that can be found in the LICENSE file in the root of the source
 *  tree.
 */
+
 
 'use strict';
 
@@ -205,7 +207,7 @@ function findPosition(){
       s=s+'0'
     }
   }
-  var k = [];
+  var k = []; // 배열의 구분자를 , 넣고 싶을때 k를 사용, 배열의 구분자를 사용하고 싶지 않을 때 s를 사용
   for( var i=0; i<s.length; i++ ){
     k[i] = s.charAt(i);
     console.log("s.length : ", s.length)
@@ -213,24 +215,41 @@ function findPosition(){
   }
   //console.log(new_array)
   $("#tempOutput").text(new_array)
-  $("#tempOutput2").text(s)
+  $("#tempOutput2").text(k)
   //$("#tempOutput3").text(s)
   //$("#tempOutput3").val(this.text(s))  //test -   bCODE 171002
   $("#bcode").val(k) //완전 뻘짓 많이 했는데, 결국 form의 input에 값을 넣는 방법은 매우 간단, 단순했다. ㅠ
 //171006 15:15 이 아래의 코드가 현재 스캔한 비코드 값이 기존에 저장된 DB에 존재하는지 여부를 확인하고 있을 경우 해당 데이터의 링크로 이동하는 코드인 듯.
-  $.ajax({
-      type: "GET",
-      url: '/find?bcode='+s,
-      success:function(data){
-        if( data ){
-          window.location = data.link
-        }
-      }
-    });
+k = [1,1,1,1,1,1,1,1,1]
+ var posts ={}
+ console.log("posts : ",posts)
+
+ //console.log("postsAll main.js Test : ", postsAll);
+ for( var i=0; i < posts.length; i++){
+   console.log("posts[i].bcode : ", posts[i].bcode, "이고, k : " );
+
+   if(posts[i].bcode == k){
+     function page_replace() {
+    location.replace("posts[i].link");
+    }
+   }
+  }
+
+  // $.ajax({
+  //     type: "GET",
+  //     url: '/find?bcode='+s,
+  //     success:function(data){
+  //       if( data ){
+  //         window.location = data.link
+  //       }
+  //     }
+  //   });
 }
 
 document.getElementById("snap").addEventListener("click", function() {
   findPosition()
+  bcodeScan()
+
 });
 
 document.getElementById("video").addEventListener("click", function() {

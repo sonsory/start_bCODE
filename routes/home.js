@@ -4,6 +4,7 @@ var express = require("express");
 var router = express.Router();
 var passport = require("../config/passport");
 
+
 // Home
 router.get("/", function(req, res){
   res.render("home/welcome");
@@ -15,6 +16,7 @@ router.get("/about", function(req, res){
 router.get("/shot", function(req, res){
   res.send('what?');
 });
+
 
 // Login
 router.get("/login", function (req, res){
@@ -49,7 +51,7 @@ router.post("/login",
     }
   },
   passport.authenticate("local-login", {
-    successRedirect : "/",
+    successRedirect : "/posts/new",
     failureRedirect : "/login"
   })
 );
@@ -63,6 +65,7 @@ router.get("/logout", function(req, res){
   console.log("로그아웃됨!")
   res.redirect("/");
 });
+
 
 
 module.exports = router;

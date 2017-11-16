@@ -82,6 +82,12 @@ router.put("/:username", function(req, res, next){
 	});
 });
 
+
+
+router.get("/aaa", function(req, res){
+  res.send('what?');
+});
+
 module.exports = router;
 
 

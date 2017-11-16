@@ -1,0 +1,24 @@
+
+
+스크립트 안의 코드도, ejs에서는 작동되는 것 같다. ejs안에서 서버, 클라이언트, 그리고 자바스크립트의 이용이 매끄럽지 못하다.
+
+
+//console.log("p3 = ", p3);
+//<% console.log("aaaaaaaa") %> //  와.. 이건 또 서버에 찍히네.. 171116
+// var posts = "<%= posts %>";  //이건 오브젝트가 ejs에서 안먹힌다는 증거!! 171116
+//var postsLength = "<%= posts.length %>";
+// for( var i=0; i < postsLength; i++){
+// 	var postsBcode[i] = "<%= posts[1].bcode %>"
+// 	var postsLink[i] = "<%= posts[1].link %>"
+ // console.log("posts[i].bcode : ", posts[i].bcode, "이고, k : " );
+
+	/*
+	if(posts[i].bcode == k){
+		function page_replace() {
+	 location.replace("posts[i].link");
+	 }
+
+	*/
+//  }
+//
+// var postsbody = "<%= posts[0].body %>";

@@ -42,7 +42,26 @@ router.get("/new", util.isLoggedin, function(req, res){
   .sort("-createdAt")
   .exec(function(err, posts){
     if(err) return res.json(err);
-  res.render("posts/new", { post:post, posts:posts, errors:errors });
+    console.log("posts[2] :", posts[2]);
+    console.log("posts.length :", posts.length);
+
+
+  res.render("posts/new", { post:post, posts:posts, errors:errors});
+  });
+});
+
+router.get("/aaa", function(req, res){   //router.get 으로 했을때는 작동, router.post로 했을 때는 작동안함... 아마 폼에서 post로 날려줘야 할 듯;;
+  //var post = req.flash("post")[0] || {};
+  //var errors = req.flash("errors")[0] || {};
+  console.log("비코드 체크!!")
+  var a = [1,1,1,1,1,1,1,1,1];
+  console.log("req.body.bcode : ", req.body.bcode);
+  Post.findOne({bcode:'1,1,1,0,1,1,1,1,1'}, function(err, post){
+   if(err) return res.json(err);
+  console.log(post);
+  res.redirect(post.link)
+  //res.render("posts/test", { a:post.link});
+
   });
 });
 
@@ -53,6 +72,7 @@ router.get("/new", util.isLoggedin, function(req, res){
 // create
 router.post("/", util.isLoggedin, function(req, res){
   req.body.author = req.user._id;
+  //console.log("req.user._id = ", req.user._id);
   Post.create(req.body, function(err, post){
     if(err){
       req.flash("post", req.body);
@@ -62,6 +82,11 @@ router.post("/", util.isLoggedin, function(req, res){
     res.redirect("/posts");
   });
 });
+
+
+
+
+
 
 // show
 router.get("/:id", function(req,res){
@@ -108,10 +133,19 @@ router.delete("/:id", util.isLoggedin, checkPermission, function(req, res){
     res.redirect("/posts");
   });
 });
+
+
+
+
+
+
+
+
 module.exports = router;
 
 
 // private function
+
 function checkPermission(req, res, next){
   Post.findOne({_id:req.params.id}, function(err, post){
     if(err) return res.json(err);
@@ -120,3 +154,9 @@ function checkPermission(req, res, next){
     next();
   })
 }
+
+//
+// function checkBcode(req, res){
+//
+//   })
+// }
