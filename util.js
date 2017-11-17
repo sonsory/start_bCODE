@@ -12,7 +12,7 @@ util.parseError = function(errors){
 	} else if(errors.code == "11000" && errors.errmsg.indexOf("username") > 0){
 		parsed.username = { message:"This username already exists!" };
 	} else {
-		parsed.unhandled = JSON.srtingify(errors);
+		parsed.unhandled = JSON.stringify(errors);
 	}
 	return parsed;
 }

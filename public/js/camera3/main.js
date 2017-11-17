@@ -235,7 +235,7 @@ k = [1,1,1,1,1,1,1,1,1]
    }
   }
 
-  // $.ajax({
+  // $.ajax({   //김박사님 작
   //     type: "GET",
   //     url: '/find?bcode='+s,
   //     success:function(data){

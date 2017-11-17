@@ -74,7 +74,7 @@ router.put("/:username", function(req, res, next){
 		user.save(function(err, user){
 			if(err) {
 				req.flash("user", req. body);
-				req.flash("errors", util.parseError);
+				req.flash("errors", util.parseError(err));
 				return res.redirect("/users/"+req.params.username+"/edit");
 			}
 			res.redirect("/users/"+req.params.username);

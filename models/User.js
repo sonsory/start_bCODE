@@ -15,8 +15,7 @@ var userSchema = mongoose.Schema({
 	},
 	password:{
 		type:String,
-		required:[true,
-		"Password is required"],
+		required:[true, "Password is required"],
 		select:false
 	}, // 171106 select:false 로 할 경우 DB에서 화면으로 불러들이는게 안되는 듯. 내부에서 비교는 되는데, 여튼, view에서 나오지 않음
 	name:{
