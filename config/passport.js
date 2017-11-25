@@ -5,6 +5,17 @@ var User = require("../models/User");
 var Userg = require("../models/Userg");
 // load the auth variables
 var configAuth = require('./auth');
+/*
+passport.serializeUser(function(user, done){
+	console.log('serialize user');
+	done(null, user.id);
+});
+passport.deserializeUser(function(id, done){
+	console.log('deserialize user');
+	User.findOne({_id:id}, function(err, user){
+		done(err, user);
+	});
+});
 
 
 /* Local login & Google OAuth2  둘다에게 필요한 부분인듯 171124 */
@@ -24,7 +35,7 @@ passport.deserializeUserg(function(id, done){
 // googleOAuth Strategy
 console.log("User GoogleStrategy!!")
 
-var userg = passport.use(new GoogleStrategy({
+/*var userg = */passport.use(new GoogleStrategy({
 
     clientID        : configAuth.googleOAuth.clientID,
     clientSecret    : configAuth.googleOAuth.clientSecret,
@@ -48,6 +59,8 @@ function(token, refreshToken, profile, done) {
             if (userg) {
 								console.log("passport.js/ userg :", userg)
                 // if a userg is found, log them in
+								//var user = userg;
+								//console.log("passport.js/ userg -> user :", user)
                 return done(null, userg);
             } else {
                 // if the Userg isnt in our database, create a new user
@@ -63,6 +76,7 @@ function(token, refreshToken, profile, done) {
 
                 var id = userg.email.split("@");
                 userg.username = id[0];
+								//var user = userg;
 
                 //newUserg.password = 'googlegoogle'; // pull the first email
 
@@ -80,8 +94,9 @@ function(token, refreshToken, profile, done) {
 
 }));
 
+
 // local Strategy
-var user = passport.use("local-login",
+passport.use("local-login",
 	new LocalStrategy({
 			usernameField : "username",
 			passwordField : "password",
@@ -105,18 +120,34 @@ var user = passport.use("local-login",
 	)
 );
 
-
+//console.log("ex>passport serializeUser user.name :", user.name);
+//console.log("ex>passport serializeUser userg.name :", userg.name);
+/*
 if (user.name == null){
 	console.log("passport serializeUser user.name :", user.name);
 	console.log("passport serializeUser userg.name :", userg.name);
-passport.serializeUser(function(userg, done){
-	done(null, userg.id);
+*/
+passport.serializeUser(function(user, done){
+	console.log('serialize userg', user);
+	done(null, user.id);
 });
 passport.deserializeUser(function(id, done){
-	Userg.findOne({_id:id}, function(err, userg){
-		done(err, userg);
+	console.log('dserialize userg');
+
+	//Userg = User;
+	Userg.findOne({_id:id}, function(err, user){
+		//console.log("user.googleIdNum : ", user.googleIdNum)  // 이런
+		if(user != null){  //if(user.name != null) 또는 if(user.googleIdNum != null) 이런 조건을 달 경우, 애초에 Userg 에서 어떤 값도 긁어오지 못하는 상태에서는 null 에러가 난다. 여기서는 그냥 user가 null인지 아닌지만 보면 됨.
+		done(err, user);
+		} else {
+			User.findOne({_id:id}, function(err, user){
+				done(err, user);
+			});
+		}
 	});
 });   // 여기와 아래 passport.use(new GoogleStrategy( 의 변수 userg를 통일하니, new.ejs에서 user를 받아들임. 아마 위의 두 함수가 반환하는 값이 req.user 에 저장되는 것 같다라는 결론이 이르름 171124
+	// google OAuth가 done(err, useg)로, userg를 반환하더라도 serializeUser 및 deserializeUser는 첫번째 콜백함수의 인자로 무조건 받아들임. 변수명 인수명 등 따위 관계없는 듯. 	그리고 최종적으로 req.user 로 값을 반환 171125
+/*
 }
 else {
 	passport.serializeUser(function(user, done){
@@ -128,6 +159,6 @@ else {
 		});
 	});
 }
-
+*/
 
 module.exports = passport;

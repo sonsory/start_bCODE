@@ -3,15 +3,39 @@
 var express = require("express");
 var router = express.Router();
 var passport = require("../config/passport");
+// 171125 이하 추가 - 네비게이션바에 구글 인증 넣으면서.. 문제가 생감;;;
+var User = require("../models/User");
+var Userg = require("../models/Userg");
+var util = require("../util");
 
 
 // Home
 router.get("/", function(req, res){
-  res.render("home/welcome");
+  res.render("posts");
 });
+
+/*
 router.get("/about", function(req, res){
   res.render("home/about");
 });
+*/
+
+//171125 수정
+router.get("/about", function(req, res){
+	User.findOne({username:req.params.username}, function(err, user){
+		if(user!=null){ //로컬 로그인시 171125
+			if(err) return res.json(err);
+			res.render("home/about", {user:user});
+		} else { //구글 로그인시 171125 ... 위의 것들도 다 이렇게 해줘야 한다는 건가;;; ㅎㄸㄷ;;;; 이것 뭔가 크게 잘못된 듯 ㅋㅋ
+			Userg.findOne({username:req.params.username}, function(err, user){
+				if(err) return res.json(err);
+				res.render("home/about", {user:user});
+			});
+		}
+	});
+});
+
+
 
 router.get("/shot", function(req, res){
   res.send('what?');
@@ -63,7 +87,7 @@ router.get("/logout", function(req, res){
   //console.log("username : ", res.body)
   req.logout();
   console.log("로그아웃됨!")
-  res.redirect("/");
+  res.redirect("posts");
 });
 
 

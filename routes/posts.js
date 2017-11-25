@@ -20,7 +20,7 @@ var util = require("../util");
 router.get("/", /*util.isLoggedin,*/ function(req, res){
   var post = req.flash("post")[0] || {};
   var errors = req.flash("errors")[0] || {};
-  var user = req.user;console.log("req.user : ", req.user);
+  var user = req.user;console.log("post.js router.get/new req.user : ", req.user);
   var userg = req.userg;console.log("req.userg : ", req.userg);
 
   //console.log("res.username : ", res.username);
@@ -29,7 +29,7 @@ router.get("/", /*util.isLoggedin,*/ function(req, res){
   .sort("-createdAt")
   .exec(function(err, posts){
     if(err) return res.json(err);
-  res.render("posts/new", { post:post, posts:posts, errors:errors, user:user, userg:userg });
+  res.render("posts/new", { post:post, posts:posts, errors:errors, user:user, userg:user });
   });
 });
 
@@ -38,7 +38,7 @@ router.get("/", /*util.isLoggedin,*/ function(req, res){
 router.get("/new", /*util.isLoggedin,*/ function(req, res){
   var post = req.flash("post")[0] || {};
   var errors = req.flash("errors")[0] || {};
-  var user = req.user;console.log("req.user : ", req.user);
+  var user = req.user;console.log("post.js router.get/new req.user : ", req.user);
   var userg = req.userg;console.log("req.userg : ", req.userg);
   //console.log("res.username : ", res.username);
   Post.find({})
@@ -50,7 +50,7 @@ router.get("/new", /*util.isLoggedin,*/ function(req, res){
     console.log("posts.length :", posts.length);
 
 
-  res.render("posts/new", { post:post, posts:posts, errors:errors, user:user, userg:userg });
+  res.render("posts/new", { post:post, posts:posts, errors:errors, user:user, userg:user });
   });
 });
 

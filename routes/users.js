@@ -9,7 +9,7 @@ var util = require("../util");
 // Index
 router.route("/").get(function(req, res){
 	User.find({})
-	.populate("userg")
+	//.populate("userg")
 	.sort({username:1})
 	.exec(function(err, users){
 		if(err) return res.json(err);
@@ -39,8 +39,15 @@ router.post("/", function(req, res){
 // Show
 router.get("/:username", function(req, res){
 	User.findOne({username:req.params.username}, function(err, user){
-		if(err) return res.json(err);
-		res.render("users/show", {user:user});
+		if(user!=null){ //로컬 로그인시 171125
+			if(err) return res.json(err);
+			res.render("users/show", {user:user});
+		} else { //구글 로그인시 171125 ... 위의 것들도 다 이렇게 해줘야 한다는 건가;;; ㅎㄸㄷ;;;; 이것 뭔가 크게 잘못된 듯 ㅋㅋ
+			Userg.findOne({username:req.params.username}, function(err, user){
+				if(err) return res.json(err);
+				res.render("users/show", {user:user});
+			});
+		}
 	});
 });
 

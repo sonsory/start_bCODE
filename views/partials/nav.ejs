@@ -8,27 +8,46 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="navbar-brand"><a href="/posts" style="text-decoration:none"
->bCODE</a></div>
+      <div class="navbar-brand"><a href="/posts" style="text-decoration:none">bCODE</a></div>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/posts">My bCODE</a></li>
-        <li><a href="/users">Users</a></li>
+      <!--  <li><a href="/users">Users</a></li>  -->
         <li><a href="/about">About</a></li>
 
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if(isAuthenticated){ %>
-        <li><a href="/users/<%= currentUser.username %>">My Account</a></li>
+      <!--  //<li><a href="/users/<%= currentUser.username %>">My Account</a></li> -->
         <li><a href="/logout">Logout</a></li>
+        <li>
+          <% console.log("posts/new.ejs user or userg : ", user); %>
+        <!--  //<h6 id="NickName"><%= user.name %></h6> &nbsp; %> -->
+        <li><a href="/users/<%= currentUser.username %>"><%= user.name %></a></li>
+
+        </li>
         <% } else { %>
         <li><a href="/users/new">Sign Up</a></li>
         <li><a href="/login">Login</a></li>
+        <li>
+
+          <a href="/auth/google" style="color:#d00a0a"> Google</a>
+        </div>
+
+        </li>
         <% } %>
+
+
+
+
+
+
+
+
       </ul>
     </div>
   </div>
-  
+
 </nav>
