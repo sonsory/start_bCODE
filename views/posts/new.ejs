@@ -5,6 +5,47 @@
 	<head>
 		<% include ../partials/head %>
 		<% include ../partials/nav %>
+		<!doctype html>
+
+
+		<head>
+		<meta name="viewport" content="width=320; user-scalable=no" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Camera</title>
+		<script src="/js/jquery-1.12.3.min.js"></script>
+
+		<script>
+		$(document).ready(function(){
+		    if (!('url' in window) && ('webkitURL' in window)) {
+		        window.URL = window.webkitURL;
+		    }
+
+		    $('#camera').change(function(e){
+		        $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+		    });
+		});
+		</script>
+		</head>
+
+
+
+
+		<!-- googole OAuth2 -->
+		<div style="float:right;">
+			<%if (user == undefined) { %>
+				<% console.log("posts/new.ejs user or userg undefined : ", user); %>
+				<div style="float:right;">
+					<h6 style="float:left">Sign in with your&nbsp;&nbsp;</h6>
+					<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+				</div>
+			<% }else{ %>
+				<% console.log("posts/new.ejs user or userg : ", user); %>
+					<h6 style="float:left" id="NickName"><%= user.name %></h6> &nbsp;
+					<button style="margin-top:4px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#NickNameChangeModal">Edit Profile
+					</button>
+			<% } %>
+		</div>
+		<!-- googole OAuth2 -->
 
 	</head>
 	<body>
@@ -129,11 +170,15 @@
 
 		      </div>
 
-					<div class = "container1">
+					<div class = "container" style="text-align:center;">
 						<h2>Take a Photo</h2>
-						<p><input type="file" accept="image/*"></p>
+						<p style="width:200px; margin: 0 auto"><input type="file" accept="image/*" style="text-align:center;"></p>
 
+						
+						<input type="file" id="camera" name="camera" capture="camera" accept="image/*"> </input>
+						<br>
 
+						<img id="pic" style="width:100%;"> </img>
 
 
 					</div>

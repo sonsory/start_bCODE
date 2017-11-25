@@ -67,5 +67,48 @@ router.get("/logout", function(req, res){
 });
 
 
+router.put('/changeNickName/:id', isLoggedIn, function(req, res){
+  if(req.user._id != req.params.id) return res.json({success:false, message:"Unauthrized Attempt"});
+
+  User.findById( req.params.id )
+  .then( r => {
+    if( null == r) {
+      throw "Not found User"
+    }
+
+    return User.findByIdAndUpdate( req.params.id, { "$set": { "nickname": req.body.nickname, "url": req.body.url } } )
+    .then( r => {
+      return res.json( { success:"true"} )
+    })
+
+  })
+  .catch( e => {
+    return res.json({success:"false", message:err});
+  })
+})
+/* Start of the Google OAuth2 */
+router.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+// the callback after google has authenticated the user
+
+router.get('/auth/google/callback',
+        passport.authenticate('google', {
+                successRedirect : '/posts',
+                failureRedirect : '/posts'
+        }));
+
+/* End of the Google OAuth2 */
 
 module.exports = router;
+
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('posts/new');
+}

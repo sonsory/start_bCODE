@@ -28,11 +28,16 @@ var userSchema = mongoose.Schema({
 		type:String,
 		match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/, "Should be a valid email address!"],
 		trim:true
+	},
+	userg:{
+		type:mongoose.Schema.Types.ObjectId,
+		ref:"userg"
 	}
 	},{
 	toObject:{virtual:true}
 });
 
+console.log("Local Login")
 // vertuals
 userSchema.virtual("passwordConfirmation")
 .get(function(){ return this._passwordConfirmation; })

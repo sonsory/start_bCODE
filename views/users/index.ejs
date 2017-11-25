@@ -23,6 +23,21 @@
 					<% }) %>
 				</ul>
 			</div>
+
+
+			<div class="contentBox">
+				<h3 class="contentBoxTop">Users</h3>
+				<ul class="floats">
+					<% if(usergs == null || usergs.length == 0) { %>
+						<div class="noData" colspan=100> There is no userg yet.</div>
+					<% } %>
+					<% usergs.forEach(function(userg) { %>
+						<li>
+							<a href="/users/<%= userg.username %>"><%= userg.username %></a>
+						</li>
+					<% }) %>
+				</ul>
+			</div>
 		</div> <!-- container end -->
 	</body>
 </html>

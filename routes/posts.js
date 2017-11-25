@@ -17,25 +17,29 @@ var util = require("../util");
 // });
 
 
-router.get("/", util.isLoggedin, function(req, res){
+router.get("/", /*util.isLoggedin,*/ function(req, res){
   var post = req.flash("post")[0] || {};
   var errors = req.flash("errors")[0] || {};
+  var user = req.user;console.log("req.user : ", req.user);
+  var userg = req.userg;console.log("req.userg : ", req.userg);
+
   //console.log("res.username : ", res.username);
   Post.find({})
   .populate("author")
   .sort("-createdAt")
   .exec(function(err, posts){
     if(err) return res.json(err);
-  res.render("posts/new", { post:post, posts:posts, errors:errors });
+  res.render("posts/new", { post:post, posts:posts, errors:errors, user:user, userg:userg });
   });
 });
 
 
-
 // New
-router.get("/new", util.isLoggedin, function(req, res){
+router.get("/new", /*util.isLoggedin,*/ function(req, res){
   var post = req.flash("post")[0] || {};
   var errors = req.flash("errors")[0] || {};
+  var user = req.user;console.log("req.user : ", req.user);
+  var userg = req.userg;console.log("req.userg : ", req.userg);
   //console.log("res.username : ", res.username);
   Post.find({})
   .populate("author")
@@ -46,7 +50,7 @@ router.get("/new", util.isLoggedin, function(req, res){
     console.log("posts.length :", posts.length);
 
 
-  res.render("posts/new", { post:post, posts:posts, errors:errors});
+  res.render("posts/new", { post:post, posts:posts, errors:errors, user:user, userg:userg });
   });
 });
 

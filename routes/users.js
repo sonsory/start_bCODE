@@ -3,15 +3,17 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/User");
+var Userg = require("../models/Userg");
 var util = require("../util");
 
 // Index
 router.route("/").get(function(req, res){
 	User.find({})
+	.populate("userg")
 	.sort({username:1})
 	.exec(function(err, users){
 		if(err) return res.json(err);
-		res.render("users/index", {users:users});
+		res.render("users/index", {users:users, userg:userg});
 	});
 });
 
@@ -81,7 +83,6 @@ router.put("/:username", function(req, res, next){
 		});
 	});
 });
-
 
 
 router.get("/aaa", function(req, res){

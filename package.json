@@ -28,8 +28,9 @@
     "moment-timezone": "^0.5.13",
     "mongoose": "^4.12.4",
     "passport": "^0.4.0",
-        "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
+    "pkg-config": "^1.1.1",
     "socket.io": "^1.7.4",
     "x-frame-options": "^1.0.0"
   }
