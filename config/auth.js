@@ -22,7 +22,7 @@ module.exports = {
         "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
         "clientSecret":"wLJEpwbr378J1jLL3CKJ06GA",
         //"callbackURL":"http://localhost:4000/auth/google/callback", //localhost
-        "callbackURL2":"https://bcode-new.herokuapp.com/auth/google/callback"  //13code.com
+        "callbackURL":"https://bcode-new.herokuapp.com/auth/google/callback"  //13code.com
 
 
     }

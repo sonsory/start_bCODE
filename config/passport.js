@@ -40,7 +40,7 @@ console.log("User GoogleStrategy!!")
     clientID        : configAuth.googleOAuth.clientID,
     clientSecret    : configAuth.googleOAuth.clientSecret,
     //callbackURL     : configAuth.googleOAuth.callbackURL, // localhost
-		callbackURL     : configAuth.googleOAuth.callbackURL2,  // 13code.com
+		callbackURL    : configAuth.googleOAuth.callbackURL,  // 13code.com
 
 },
 function(token, refreshToken, profile, done) {

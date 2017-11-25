@@ -11,22 +11,32 @@ var util = require("../util");
 
 // Home
 router.get("/", function(req, res){
-  res.render("posts");
+  res.redirect("/posts");
 });
 
 /*
-router.get("/about", function(req, res){
+router.get("/", function(req, res){
   res.render("home/about");
 });
 */
 
-//171125 수정
-router.get("/about", function(req, res){
+router.get("/about", function(req, res){ //171126 얘는 애초에 user가 있는 걸로 나온다. 왜? ... 오... 결국 해결했다. 마지막 시도가 맞았었는데,  var user = req.user; 에서 마지막 r을 빼먹어서 2시간 더 고생.ㅇ...
+  console.log('routes/home.js get /about user : ', req.user)
+  var user = req.user;
+	res.render("home/about", {user:user});
+});
+
+
+//171125 수정  -> 계속 user가 없다고 에러남..
+/*
+router.get("/about", function(req, res){ //171126 얘는 애초에 user가 있는 걸로 나온다. 왜?
+console.log('routes/home.js get /about user : ', req.user)
+var user = req.user;
 	User.findOne({username:req.params.username}, function(err, user){
 		if(user!=null){ //로컬 로그인시 171125
 			if(err) return res.json(err);
-			res.render("home/about", {user:user});
-		} else { //구글 로그인시 171125 ... 위의 것들도 다 이렇게 해줘야 한다는 건가;;; ㅎㄸㄷ;;;; 이것 뭔가 크게 잘못된 듯 ㅋㅋ
+			   res.render("home/about", {user:user});
+		      } else { //구글 로그인시 171125 ... 위의 것들도 다 이렇게 해줘야 한다는 건가;;; ㅎㄸㄷ;;;; 이것 뭔가 크게 잘못된 듯 ㅋㅋ
 			Userg.findOne({username:req.params.username}, function(err, user){
 				if(err) return res.json(err);
 				res.render("home/about", {user:user});
@@ -34,6 +44,7 @@ router.get("/about", function(req, res){
 		}
 	});
 });
+*/
 
 
 
