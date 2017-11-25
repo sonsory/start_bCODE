@@ -39,7 +39,7 @@ console.log("User GoogleStrategy!!")
 
     clientID        : configAuth.googleOAuth.clientID,
     clientSecret    : configAuth.googleOAuth.clientSecret,
-    callbackURL     : configAuth.googleOAuth.callbackURL,
+    callbackURL     : configAuth.googleOAuth.callbackURL || configAuth.googleOAuth.callbackURL2,
 
 },
 function(token, refreshToken, profile, done) {
