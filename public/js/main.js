@@ -25,7 +25,7 @@
 
     function init(){
 
-        var scanButton = document.querySelector( '#scan' );
+        var scanButton = document.querySelector( '#scan1' );
         var spinnerElement = document.getElementById('spinner');
 
         if ( craftar.supportsCapture() ){
@@ -33,7 +33,7 @@
             setupCapture(function( err, captureObject ){
 
                 if ( err ){
-                    
+
                     alert( 'there was an error initilizating the camera ( no device present? )' )
 
                 }else{
