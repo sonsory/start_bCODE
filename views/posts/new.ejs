@@ -25,6 +25,39 @@
 		    });
 		});
 		</script>
+		<script type="text/javascript"> /*
+		var applemobile = ['iphone', 'ipod'];
+		for (var i in applemobile) {
+			if (navigator.userAgent.toLowerCase().match(new RegExp(applemobile[i]))) {
+				$(document).ready(function(){
+					 $("#appleMobile").load("appleMobile.html");
+				console.log("aaxdsdsfsdf")
+				alert('This is apple\'s mobile device ..!');
+				});
+
+			}
+		} */
+			</script>
+
+
+
+			  <script src="./js/handlebars-v2.0.0.js"></script>
+
+			   <script src="./js/craftar.min.js"></script>
+
+			   <script src="./js/main.js"></script>
+
+			    <script id="resultTemplate" type="text/x-handlebars-template">
+			            <li><a href="{{itemUrl}}" target="_blank"><div id="thumbContainer"><img src="{{thumbnailUrl}}"><span>{{itemName}}</span></div></a></li>
+			    </script>
+
+
+
+
+
+
+
+
 		</head>
 
 
@@ -59,22 +92,25 @@
 		      <div id="container1">
 						<p>
 						<div id="container" style="text-align:center;">
-		        <div class="select" style="display: none;">
-		          <label for="audioSource"><%#Audio input source: %></label><select id="audioSource"></select>
-		        </div>
+			        <div class="select" style="display: none;">
+			          <label for="audioSource"><%#Audio input source: %></label><select id="audioSource"></select>
+			        </div>
 
-		        <div class="select" style="display: none;">
-		          <label for="audioOutput"><%#Audio output destination: %></label><select id="audioOutput"></select>
-		        </div>
+			        <div class="select" style="display: none;">
+			          <label for="audioOutput"><%#Audio output destination: %></label><select id="audioOutput"></select>
+			        </div>
 
-		        <div class="select">
-		          <label for="videoSource" style= "width: 100px; display: none;" >Scan source: </label><select id="videoSource" style="display: none;"></select> <%#  %>
-		          <button id="scanButton">bCODE scan</button><button id="setButton">bCODE setting</button>
-		        </div>
-					</div> <!-- container -->
-					<p>
+			        <div class="select">
+			          <label for="videoSource" style= "width: 100px; display: none;" >Scan source: </label><select id="videoSource"></select> Mode Select<%#  %>
+			          <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button>
+			        </div>
+						</div> <!-- container -->
+						<p>
 
-		        <div id="scan" style="text-align:center; border:1px solid #ffffff;">
+
+
+
+ 		        <div id="scan" style="text-align:center; border:1px solid #ffffff;">
 		          <video id="video" style="width:141px; height:188px;border: 1px solid #ffffff;"  autoplay></video><br> <%#style="width:150px; height:267px" style="width:320px; height:240px" %>
 
 		          <button id="snap" type="submit" formmethod="get">bCODE scan</button>
@@ -116,8 +152,59 @@
 		              </div>
 		            </div>
 		          </div> <%# div img %>
-		        </div>
+						</div> <%# scan %>
+					</div> <%# container1 %>
+						<script>
 
+						</script>
+
+
+
+
+				<!--171129 test -->
+				<div class="container1">
+			 				 <div id="videoCapture">
+
+			 				 </div>
+			 				 <form action="#" method="post" accept-charset="utf-8">
+
+			 						 <input id="scan1" type="button" value="Start scanning">
+			 				 </form>
+			 				 <div class="spinner hidden" id="spinner"><img src="./images/spinner.gif"></div>
+			 				 <div class="center">
+			 								 <ul class="ir" id="resultList">
+			 								 </ul>
+			 				 </div>
+			  </div>
+				<!--171129 test -->
+
+					<!-- 아이폰 용 -->
+
+
+
+
+						<!--
+					/*
+					var smartPhones = [
+            'iphone', 'ipod','windows ce','android','blackberry','nokia','webos','opera mini','sonyerricsson','opera mobi','iemobile'
+        ];
+        var isS = false;
+        for (var i in smartPhones) {
+            if (navigator.userAgent.toLowerCase().match(new RegExp(smartPhones[i]))) {
+                alert('This is Smart Phone..!');
+                isS = true;
+
+            }
+        }
+        if(!isS) {
+            alert('Not smart Phone');
+        }
+*/
+					-->
+
+
+					<div id="appleMobile">..</div>
+					<div id="t1">..</div>
 
 
 
@@ -170,18 +257,6 @@
 
 		      </div>
 
-					<div class = "container" style="text-align:center;">
-						<h2>Take a Photo</h2>
-						<p style="width:200px; margin: 0 auto"><input type="file" accept="image/*" style="text-align:center;"></p>
-
-
-						<input type="file" id="camera" name="camera" capture="camera" accept="image/*"> </input>
-						<br>
-
-						<img id="pic" style="width:100%;"> </img>
-
-
-					</div>
 
 
 
