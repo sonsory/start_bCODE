@@ -161,7 +161,53 @@
 
 
 
-			
+				<!--171129 test -->
+				<div class="container1">
+			 				 <div id="videoCapture">
+
+			 				 </div>
+			 				 <form action="#" method="post" accept-charset="utf-8">
+
+			 						 <input id="scan1" type="button" value="Start scanning">
+			 				 </form>
+			 				 <div class="spinner hidden" id="spinner"><img src="./images/spinner.gif"></div>
+			 				 <div class="center">
+			 								 <ul class="ir" id="resultList">
+			 								 </ul>
+			 				 </div>
+			  </div>
+				<!--171129 test -->
+
+					<!-- 아이폰 용 -->
+
+
+
+
+						<!--
+					/*
+					var smartPhones = [
+            'iphone', 'ipod','windows ce','android','blackberry','nokia','webos','opera mini','sonyerricsson','opera mobi','iemobile'
+        ];
+        var isS = false;
+        for (var i in smartPhones) {
+            if (navigator.userAgent.toLowerCase().match(new RegExp(smartPhones[i]))) {
+                alert('This is Smart Phone..!');
+                isS = true;
+
+            }
+        }
+        if(!isS) {
+            alert('Not smart Phone');
+        }
+*/
+					-->
+
+
+					<div id="appleMobile">..</div>
+					<div id="t1">..</div>
+
+
+
 		<%# if ( canvas != "") {%>
 
 		        <div id="view" style="text-align:center; border:2px solid #ffffff;">
@@ -333,7 +379,7 @@
 			<script src="/js/list.js"></script>
 
 			<script>
-			function bcodeScan(){ //이건 비코드 스캔후, 현재 저장된 비코드와 비교하는 함수, 비교후 일치하는 비코드 있으면 해당 URL로 이동 bcodeScan 을 키워드로 command + shift + F 하면 bcodeScan 을 불러들이는 곳을 알 수 있음.
+			function bcodeScan(){
 				var postsAll = <%-JSON.stringify(posts) %>
 				console.log("postsAll : ", postsAll)  //워... 어마어마한 방법을... 171116
 				for(i=0; i<postsAll.length; i++){

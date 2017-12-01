@@ -25,7 +25,7 @@
 
     function init(){
 
-        var scanButton = document.querySelector( '#scan1' );
+        var scanButton = document.querySelector( '#scan' );
         var spinnerElement = document.getElementById('spinner');
 
         if ( craftar.supportsCapture() ){
