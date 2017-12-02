@@ -54,6 +54,13 @@ router.get("/new", /*util.isLoggedin,*/ function(req, res){
   });
 });
 
+
+
+router.get("/index", /*util.isLoggedin,*/ function(req, res){
+
+  res.render("posts/index");
+  });
+
 router.get("/aaa", function(req, res){   //router.get 으로 했을때는 작동, router.post로 했을 때는 작동안함... 아마 폼에서 post로 날려줘야 할 듯;;
   //var post = req.flash("post")[0] || {};
   //var errors = req.flash("errors")[0] || {};

@@ -1,0 +1,356 @@
+<!-- view/posts/new.ejs -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include ../partials/head %>
+		<% include ../partials/nav %>
+
+		<meta name="viewport" content="width=320; user-scalable=no" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Camera</title>
+		<script src="/js/jquery-1.12.3.min.js"></script>
+
+		<script>
+		$(document).ready(function(){
+		    if (!('url' in window) && ('webkitURL' in window)) {
+		        window.URL = window.webkitURL;
+		    }
+
+		    $('#camera').change(function(e){
+		        $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+		    });
+		});
+		</script>
+		<script type="text/javascript"> /*
+		var applemobile = ['iphone', 'ipod'];
+		for (var i in applemobile) {
+			if (navigator.userAgent.toLowerCase().match(new RegExp(applemobile[i]))) {
+				$(document).ready(function(){
+					 $("#appleMobile").load("appleMobile.html");
+				console.log("aaxdsdsfsdf")
+				alert('This is apple\'s mobile device ..!');
+				});
+
+			}
+		} */
+			</script>
+
+
+
+
+
+			   <script src="./js/craftar.min.js"></script>
+
+			   <script src="./js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+		</head>
+
+
+
+
+		<!-- googole OAuth2
+		<div style="float:right;">
+			<%if (user == undefined) { %>
+				<% console.log("posts/new.ejs user or userg undefined : ", user); %>
+				<div style="float:right;">
+					<h6 style="float:left">Sign in with your&nbsp;&nbsp;</h6>
+					<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+				</div>
+			<% }else{ %>
+				<% console.log("posts/new.ejs user or userg : ", user); %>
+					<h6 style="float:left" id="NickName"><%= user.name %></h6> &nbsp;
+					<button style="margin-top:4px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#NickNameChangeModal">Edit Profile
+					</button>
+			<% } %>
+		</div>
+		 googole OAuth2 -->
+
+	</head>
+	<body>
+		<div class="container post post-edit">
+		<% include ./partials/header %>
+		</div>
+
+
+    <% include ../partials/camera %>
+
+		      <div id="container1">
+						<p>
+						<div id="container" style="text-align:center;">
+			        <div class="select" style="display: none;">
+			          <label for="audioSource"><%#Audio input source: %></label><select id="audioSource"></select>
+			        </div>
+
+			        <div class="select" style="display: none;">
+			          <label for="audioOutput"><%#Audio output destination: %></label><select id="audioOutput"></select>
+			        </div>
+
+			        <div class="select">
+			          <label for="videoSource" style= "width: 100px; display: none;" >Scan source: </label><select id="videoSource"></select> Mode Select<%#  %>
+			          <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button>
+			        </div>
+						</div> <!-- container -->
+						<p>
+
+
+
+
+ 		        <div id="scan" style="text-align:center; border:1px solid #ffffff;"> <!--여기서의 div 및 id의 역할은 숨기고 보이고 하는 정도의 기능을 위함 171202-->
+		          <!-- 171202
+							<video id="video" style="width:141px; height:188px;border: 1px solid #ffffff;"  autoplay></video><br> <%#style="width:150px; height:267px" style="width:320px; height:240px" %>
+						-->
+						<div id="video">
+
+						</div>
+
+		          <button id="snap" type="submit" formmethod="get">bCODE scan</button>
+
+
+		          <div class="img">
+		            <div class="containerVideo" style="margin-left: auto;margin-right: auto;margin-top:-22px;">
+
+
+		              <div class="cardVideo">
+
+		                <div id="tile11" class="myboxVideo" style="background:white;">
+		                </div>
+
+		                <div id="tile22" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile33" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile44" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile55" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile66" class="myboxVideo" style="background:black;" >
+		                </div>
+
+		                <div id="tile77" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile88" class="myboxVideo" style="background:black;">
+		                </div>
+
+		                <div id="tile99" class="myboxVideo" style="background:black;">
+		                </div>
+
+		              </div>
+		            </div>
+		          </div> <%# div img %>
+						</div> <%# scan %>
+					</div> <%# container1 %>
+						<script>
+
+						</script>
+
+
+
+
+
+		<%# if ( canvas != "") {%>
+
+		        <div id="view" style="text-align:center; border:2px solid #ffffff;">
+		        <canvas id="canvas" style="width:150px;height:150px;text-align:center;border: 1px solid #ffffff;" width="150" height="150"></canvas><br>
+		        <button id="backToScan">backToScan</button>
+		        <div style="width:100%;" id="tempOutput"></div>
+		        <div style="width:100%;" id="tempOutput2"></div>
+		        </div>
+
+
+
+
+		        <div id="set">
+		          <div class="container1" style="height: 300px;">
+
+		            <div class="card">
+
+		              <div id="tile1" class="mybox" style="background:white;">
+		              </div>
+
+		              <div id="tile2" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile3" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile4" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile5" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile6" class="mybox" style="background:black;" >
+		              </div>
+
+		              <div id="tile7" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile8" class="mybox" style="background:black;">
+		              </div>
+
+		              <div id="tile9" class="mybox" style="background:black;">
+		              </div>
+
+		            </div>
+		          </div>
+
+		      </div>
+
+
+
+
+
+		  <script>
+
+		  console.log("test3.ejs - context : ",  canvas.getContext('2d') )
+		  console.log("id:tile6.value :", document.getElementById("tile6").style)
+		  var tile6 = document.getElementById("tile6")
+		  console.log("id:tile6 :", tile6)
+			var temp = document.getElementById("tempOutput2"); //왜 bcode를 id로 하면 temp에서 값을 못받아 들이지?
+			var temp2 = temp.innerText;
+			var temp3 = temp2;
+			console.log("dd : ", temp.innerHTML )
+
+		  </script>
+
+		<%# } %>
+		<%#
+		  <p class="small"><b>Note:</b> If you hear a reverb sound your microphone is picking up the output of your speakers/headset, lower the volume and/or move the microphone further away from your speakers/headset.</p>
+
+		  <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/devices/input-output" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>%>
+		</div>
+
+
+
+
+
+
+
+		<div class="container post post-new">
+
+
+
+			<form class="post-form form-horizontal" action="/posts" method="post">
+				<div class="contentBox">
+					<h3 class="contentBoxTop">New bCODE</h3><%= posts.length %>
+
+					<fieldset>
+						<div class="form-group <%= (errors.title)?'has-error':'' %>">
+							<label for="title" class="col-sm-2 control-label">Title</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" id="title" name="title" value="<%= post.title %>">
+								<% if(errors.title){ %>
+									<span class="help-block"><%= errors.title.message %></span>
+								<% } %>
+							</div>
+						</div>
+						<div class="form-group <%= (errors.bcode)?'has-error':'' %>">
+							<label for="bcode" class="col-sm-2 control-label">bCODE</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" id="bcode" name="bcode" value="<%= post.bcode %>">
+								<% if(errors.bcode){ %>
+									<span class="help-block"><%= errors.bcode.message %></span>
+								<% } %>
+							</div>
+						</div>
+						<div class="form-group <%= (errors.link)?'has-error':'' %>">
+							<label for="link" class="col-sm-2 control-label">Link</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" id="link" name="link" value="<%= post.link %>">
+								<% if(errors.link){ %>
+									<span class="help-block"><%= errors.link.message %></span>
+								<% } %>
+							</div>
+						</div>
+						<div class="form-group <%= (errors.body)?'has-error':'' %>">
+							<label for="body" class="col-sm-2 control-label">Explain</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" id="body" name="body" rows="5"><%= post.body %></textarea>
+								<% if(errors.body){ %>
+									<span class="help-block"><%= errors.body.message %></span>
+								<% } %>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="buttons">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+				<% if(errors.unhandled){ %>
+					<div class="alert alert-danger">
+					<%= errors.unhandled %>
+				<% } %>
+			</form>
+
+			<table class="table table-striped posts">
+				<thead>
+					<tr>
+						<th class="title">Title</th>
+						<th class="author">Author</th>
+						<th class="date">Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if(posts == null || posts.length == 0){ %>
+					<tr>
+						<td class="noData" colspan=100>There is no data to show! </td>
+					</tr>
+					<% } %>
+					<% posts.forEach(function(post){ %>
+						<tr>
+							<td class="title">
+								<a href="/posts/<%= post._id %>"><div class="ellipsis"><%= post.title %></div></a>
+							</td>
+							<td class="author">
+								<div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
+							</td>
+							<td class="date">
+								<%= post.createdDate %>
+							</td>
+						</tr>
+					<% }) %>
+				</tbody>
+			</table>
+
+			<script src="/js/camera3/adapter.js"></script> <%# 이거하고 바로 아래 스크립트 두개 적용안했을 때, 맥에서는 카메라가 작동되지만, 폰에서는 안됐음 %>
+			<script src="/js/camera3/common.js"></script>
+			<script src="/js/camera3/main.js"></script>
+			<script src="/js/list.js"></script>
+
+
+						   <script src="./js/craftar.min.js"></script>
+
+						   <script src="./js/main.js"></script>
+
+
+			<script>
+			function bcodeScan(){ //이건 비코드 스캔후, 현재 저장된 비코드와 비교하는 함수, 비교후 일치하는 비코드 있으면 해당 URL로 이동 bcodeScan 을 키워드로 command + shift + F 하면 bcodeScan 을 불러들이는 곳을 알 수 있음.
+				var postsAll = <%-JSON.stringify(posts) %>
+				console.log("postsAll : ", postsAll)  //워... 어마어마한 방법을... 171116
+				for(i=0; i<postsAll.length; i++){
+					console.log("tempOutput2.innerText : ", tempOutput2.innerText)
+					 if(tempOutput2.innerText == postsAll[i].bcode){
+
+						 location.replace(postsAll[i].link);
+					 }
+				}
+			}
+			</script>
+		</div> <!-- container end -->
+	</body>
+	</html>

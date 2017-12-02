@@ -4,8 +4,7 @@
 
     function init(){
 
-        var scanButton = document.querySelector( '#scan' );
-        var spinnerElement = document.getElementById('spinner');
+        var scanButton = document.querySelector( '#scan1' );
 
         if ( craftar.supportsCapture() ){
 
