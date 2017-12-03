@@ -11,7 +11,7 @@
 		<title>Camera</title>
 		<script src="/js/jquery-1.12.3.min.js"></script>
 
-		<script>
+		<%# <script>
 		$(document).ready(function(){
 		    if (!('url' in window) && ('webkitURL' in window)) {
 		        window.URL = window.webkitURL;
@@ -21,7 +21,7 @@
 		        $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
 		    });
 		});
-		</script>
+		</script>%>
 		<script type="text/javascript"> /*
 		var applemobile = ['iphone', 'ipod'];
 		for (var i in applemobile) {
@@ -39,18 +39,22 @@
 
 
 
-
-			   <script src="./js/craftar.min.js"></script>
-
-			   <script src="./js/main.js"></script>
-
-
-
-
-
-
-
-
+				 <!-- googole OAuth2
+				 <div style="float:right;">
+				 	<%if (user == undefined) { %>
+				 		<% console.log("posts/new.ejs user or userg undefined : ", user); %>
+				 		<div style="float:right;">
+				 			<h6 style="float:left">Sign in with your&nbsp;&nbsp;</h6>
+				 			<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+				 		</div>
+				 	<% }else{ %>
+				 		<% console.log("posts/new.ejs user or userg : ", user); %>
+				 			<h6 style="float:left" id="NickName"><%= user.name %></h6> &nbsp;
+				 			<button style="margin-top:4px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#NickNameChangeModal">Edit Profile
+				 			</button>
+				 	<% } %>
+				 </div>
+				  googole OAuth2 -->
 
 
 		</head>
@@ -58,33 +62,18 @@
 
 
 
-		<!-- googole OAuth2
-		<div style="float:right;">
-			<%if (user == undefined) { %>
-				<% console.log("posts/new.ejs user or userg undefined : ", user); %>
-				<div style="float:right;">
-					<h6 style="float:left">Sign in with your&nbsp;&nbsp;</h6>
-					<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
-				</div>
-			<% }else{ %>
-				<% console.log("posts/new.ejs user or userg : ", user); %>
-					<h6 style="float:left" id="NickName"><%= user.name %></h6> &nbsp;
-					<button style="margin-top:4px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#NickNameChangeModal">Edit Profile
-					</button>
-			<% } %>
-		</div>
-		 googole OAuth2 -->
 
-	</head>
+
 	<body>
 		<div class="container post post-edit">
 		<% include ./partials/header %>
 		</div>
 
 
-    <% include ../partials/camera %>
+    <%# include ../partials/camera %>
 
 		      <div id="container1">
+<!--
 						<p>
 						<div id="container" style="text-align:center;">
 			        <div class="select" style="display: none;">
@@ -99,65 +88,65 @@
 			          <label for="videoSource" style= "width: 100px; display: none;" >Scan source: </label><select id="videoSource"></select> Mode Select<%#  %>
 			          <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button>
 			        </div>
-						</div> <!-- container -->
+						</div>     <!-- container -->
 						<p>
+							<div class="select">
+							 <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button>
+							 <button id="scan1">scan1</button>
+						 	</div>
 
 
 
-
- 		        <div id="scan" style="text-align:center; border:1px solid #ffffff;"> <!--여기서의 div 및 id의 역할은 숨기고 보이고 하는 정도의 기능을 위함 171202-->
+ 		        	<div id="scan" style="text-align:center; border:1px solid #ffffff;"> <!--여기서의 div 및 id의 역할은 숨기고 보이고 하는 정도의 기능을 위함 171202-->
 		          <!-- 171202
 							<video id="video" style="width:141px; height:188px;border: 1px solid #ffffff;"  autoplay></video><br> <%#style="width:150px; height:267px" style="width:320px; height:240px" %>
 						-->
-						<div id="videoCapture">
+								<div id="videoCapture" style="width:141px; height:188px;">
 
-						</div>
-
-		          <button id="snap" type="submit" formmethod="get">bCODE scan</button>
+								</div>
 
 
-		          <div class="img">
-		            <div class="containerVideo" style="margin-left: auto;margin-right: auto;margin-top:-22px;">
+		          	<button id="snap" type="submit" formmethod="get">bCODE scan</button>
 
 
-		              <div class="cardVideo">
+			          <div class="img">
+			            <div class="containerVideo" style="margin-left: auto;margin-right: auto;margin-top:-22px;">
 
-		                <div id="tile11" class="myboxVideo" style="background:white;">
-		                </div>
 
-		                <div id="tile22" class="myboxVideo" style="background:black;">
-		                </div>
+			              <div class="cardVideo">
 
-		                <div id="tile33" class="myboxVideo" style="background:black;">
-		                </div>
+			                <div id="tile11" class="myboxVideo" style="background:white;">
+			                </div>
 
-		                <div id="tile44" class="myboxVideo" style="background:black;">
-		                </div>
+			                <div id="tile22" class="myboxVideo" style="background:black;">
+			                </div>
 
-		                <div id="tile55" class="myboxVideo" style="background:black;">
-		                </div>
+			                <div id="tile33" class="myboxVideo" style="background:black;">
+			                </div>
 
-		                <div id="tile66" class="myboxVideo" style="background:black;" >
-		                </div>
+			                <div id="tile44" class="myboxVideo" style="background:black;">
+			                </div>
 
-		                <div id="tile77" class="myboxVideo" style="background:black;">
-		                </div>
+			                <div id="tile55" class="myboxVideo" style="background:black;">
+			                </div>
 
-		                <div id="tile88" class="myboxVideo" style="background:black;">
-		                </div>
+			                <div id="tile66" class="myboxVideo" style="background:black;" >
+			                </div>
 
-		                <div id="tile99" class="myboxVideo" style="background:black;">
-		                </div>
+			                <div id="tile77" class="myboxVideo" style="background:black;">
+			                </div>
 
-		              </div>
-		            </div>
-		          </div> <%# div img %>
-						</div> <%# scan %>
-					</div> <%# container1 %>
-						<script>
+			                <div id="tile88" class="myboxVideo" style="background:black;">
+			                </div>
 
-						</script>
+			                <div id="tile99" class="myboxVideo" style="background:black;">
+			                </div>
 
+			              </div> <!-- cardVideo -->
+			            </div> <!-- containerVideo -->
+			          </div> <%# div img %>
+							</div> <%# scan %>
+						</div> <%# container1 %>
 
 
 
@@ -165,6 +154,7 @@
 		<%# if ( canvas != "") {%>
 
 		        <div id="view" style="text-align:center; border:2px solid #ffffff;">
+							<p>.<p><p><p><p><p><p>
 		        <canvas id="canvas" style="width:150px;height:150px;text-align:center;border: 1px solid #ffffff;" width="150" height="150"></canvas><br>
 		        <button id="backToScan">backToScan</button>
 		        <div style="width:100%;" id="tempOutput"></div>
@@ -233,7 +223,7 @@
 		  <p class="small"><b>Note:</b> If you hear a reverb sound your microphone is picking up the output of your speakers/headset, lower the volume and/or move the microphone further away from your speakers/headset.</p>
 
 		  <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/devices/input-output" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>%>
-		</div>
+
 
 
 
@@ -329,13 +319,14 @@
 
 			<script src="/js/camera3/adapter.js"></script> <%# 이거하고 바로 아래 스크립트 두개 적용안했을 때, 맥에서는 카메라가 작동되지만, 폰에서는 안됐음 %>
 			<script src="/js/camera3/common.js"></script>
-			<script src="/js/camera3/main.js"></script>
-			<script src="/js/list.js"></script>
 
 
-						   <script src="./js/craftar.min.js"></script>
+		   <script src="/js/craftar.min.js"></script>
+		   <!-- <script src="/js/main.js"></script> -->
+			 <script src="/js/camera3/main.js"></script>
+<!--			<script src="/js/list.js">//몽고DB로 대체한 이상 필요없음 </script> -->
 
-						   <script src="./js/main.js"></script>
+
 
 
 			<script>

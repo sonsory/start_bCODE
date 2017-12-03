@@ -1,4 +1,4 @@
-//public/js/camera3/main.js ver.171204//
+//public/js/camera3/main.js ver.171203 이전//
 
 /*
 *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
@@ -10,131 +10,131 @@
 
 
 'use strict';
-//
-// var videoElement = document.querySelector('video');
-// // var audioInputSelect = document.querySelector('select#audioSource');
-// // var audioOutputSelect = document.querySelector('select#audioOutput');
-// var videoSelect = document.querySelector('select#videoSource');
-// var selectors = [videoSelect];
-// //var selectors = [audioInputSelect, audioOutputSelect, videoSelect];
-// var init = true
-//
-// function gotDevices(deviceInfos) {
-//   // Handles being called several times to update labels. Preserve values.
-//   var values = selectors.map(function(select) {
-//     return select.value;
-//   });
-//   selectors.forEach(function(select) {
-//     while (select.firstChild) {
-//       select.removeChild(select.firstChild);
-//     }
-//   });
-//   var cnt = 1
-//   for (var i = 0; i !== deviceInfos.length; ++i) {
-//     var deviceInfo = deviceInfos[i];
-//     var option = document.createElement('option');
-//     // if (deviceInfo.kind === 'audioinput') {
-//     //   option.text = deviceInfo.label ||
-//     //       'microphone ' + (audioInputSelect.length + 1);
-//     //   audioInputSelect.appendChild(option);
-//     // } else if (deviceInfo.kind === 'audiooutput') {
-//     //   option.text = deviceInfo.label || 'speaker ' +
-//     //       (audioOutputSelect.length + 1);
-//     //   audioOutputSelect.appendChild(option);
-//     // } else
-//     if (deviceInfo.kind === 'videoinput') {
-//       //option.text = deviceInfo.label || 'camera ' + (videoSelect.length + 1);
-//       option.id = "camera_" + cnt;
-//       option.text = 'Camera ' + cnt++;
-//       option.value = deviceInfo.deviceId;
-//       videoSelect.appendChild(option);
-//       console.log('video info: ', deviceInfo)
-//     } else {
-//       //console.log('Some other kind of source/device: ', deviceInfo);
-//     }
-//   }
-//   selectors.forEach(function(select, selectorIndex) {
-//     if (Array.prototype.slice.call(select.childNodes).some(function(n) {
-//       return n.value === values[selectorIndex];
-//     })) {
-//       select.value = values[selectorIndex];
-//     }
-//   });
-//
-//   if( init ){
-//     var id = $("#camera_2").val()
-//     if( id != undefined ){
-//       $("#videoSource").val(id).change()
-//     } else {
-//       start()
-//     }
-//     init = false
-//   }
-// }
-//
-// navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-//
-// // Attach audio output device to video element using device/sink ID.
-// function attachSinkId(element, sinkId) {
-//   if (typeof element.sinkId !== 'undefined') {
-//     element.setSinkId(sinkId)
-//     .then(function() {
-//       console.log('Success, audio output device attached: ' + sinkId);
-//     })
-//     .catch(function(error) {
-//       var errorMessage = error;
-//       if (error.name === 'SecurityError') {
-//         errorMessage = 'You need to use HTTPS for selecting audio output ' +
-//             'device: ' + error;
-//       }
-//       console.error(errorMessage);
-//       // Jump back to first output device in the list as it's the default.
-//       //audioOutputSelect.selectedIndex = 0;
-//     });
-//   } else {
-//     console.warn('Browser does not support output device selection.');
-//   }
-// }
-//
-// // function changeAudioDestination() {
-// //   var audioDestination = audioOutputSelect.value;
-// //   attachSinkId(videoElement, audioDestination);
-// // }
-//
-// function gotStream(stream) {
-//   window.stream = stream; // make stream available to console
-//   videoElement.srcObject = stream;
-//   // Refresh button list in case labels have become available
-//   return navigator.mediaDevices.enumerateDevices();
-// }
-//
-// function start() {
-//   if (window.stream) {
-//     window.stream.getTracks().forEach(function(track) {
-//       track.stop();
-//     });
-//   }
-//   //var audioSource = audioInputSelect.value;
-//   var videoSource = videoSelect.value;
-//   console.log("videoSource : ", videoSource)
-//   var constraints = {
-//   //  audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
-//     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
-//   };
-//   navigator.mediaDevices.getUserMedia(constraints).
-//       then(gotStream).then(gotDevices).catch(handleError);
-// }
-//
-// //audioInputSelect.onchange = start;
-// //audioOutputSelect.onchange = changeAudioDestination;
-// videoSelect.onchange = start;
-//
-// console.log("start : ", start)
-// //start();
 
-// function handleError(error) {
-//   console.log('navigator.getUserMedia error: ', error);
+var videoElement = document.querySelector('video');
+// var audioInputSelect = document.querySelector('select#audioSource');
+// var audioOutputSelect = document.querySelector('select#audioOutput');
+var videoSelect = document.querySelector('select#videoSource');
+var selectors = [videoSelect];
+//var selectors = [audioInputSelect, audioOutputSelect, videoSelect];
+var init = true
+
+function gotDevices(deviceInfos) {
+  // Handles being called several times to update labels. Preserve values.
+  var values = selectors.map(function(select) {
+    return select.value;
+  });
+  selectors.forEach(function(select) {
+    while (select.firstChild) {
+      select.removeChild(select.firstChild);
+    }
+  });
+  var cnt = 1
+  for (var i = 0; i !== deviceInfos.length; ++i) {
+    var deviceInfo = deviceInfos[i];
+    var option = document.createElement('option');
+    // if (deviceInfo.kind === 'audioinput') {
+    //   option.text = deviceInfo.label ||
+    //       'microphone ' + (audioInputSelect.length + 1);
+    //   audioInputSelect.appendChild(option);
+    // } else if (deviceInfo.kind === 'audiooutput') {
+    //   option.text = deviceInfo.label || 'speaker ' +
+    //       (audioOutputSelect.length + 1);
+    //   audioOutputSelect.appendChild(option);
+    // } else
+    if (deviceInfo.kind === 'videoinput') {
+      //option.text = deviceInfo.label || 'camera ' + (videoSelect.length + 1);
+      option.id = "camera_" + cnt;
+      option.text = 'Camera ' + cnt++;
+      option.value = deviceInfo.deviceId;
+      videoSelect.appendChild(option);
+      console.log('video info: ', deviceInfo)
+    } else {
+      //console.log('Some other kind of source/device: ', deviceInfo);
+    }
+  }
+  selectors.forEach(function(select, selectorIndex) {
+    if (Array.prototype.slice.call(select.childNodes).some(function(n) {
+      return n.value === values[selectorIndex];
+    })) {
+      select.value = values[selectorIndex];
+    }
+  });
+
+  if( init ){
+    var id = $("#camera_2").val()
+    if( id != undefined ){
+      $("#videoSource").val(id).change()
+    } else {
+      start()
+    }
+    init = false
+  }
+}
+
+navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+
+// Attach audio output device to video element using device/sink ID.
+function attachSinkId(element, sinkId) {
+  if (typeof element.sinkId !== 'undefined') {
+    element.setSinkId(sinkId)
+    .then(function() {
+      console.log('Success, audio output device attached: ' + sinkId);
+    })
+    .catch(function(error) {
+      var errorMessage = error;
+      if (error.name === 'SecurityError') {
+        errorMessage = 'You need to use HTTPS for selecting audio output ' +
+            'device: ' + error;
+      }
+      console.error(errorMessage);
+      // Jump back to first output device in the list as it's the default.
+      //audioOutputSelect.selectedIndex = 0;
+    });
+  } else {
+    console.warn('Browser does not support output device selection.');
+  }
+}
+
+// function changeAudioDestination() {
+//   var audioDestination = audioOutputSelect.value;
+//   attachSinkId(videoElement, audioDestination);
 // }
+
+function gotStream(stream) {
+  window.stream = stream; // make stream available to console
+  videoElement.srcObject = stream;
+  // Refresh button list in case labels have become available
+  return navigator.mediaDevices.enumerateDevices();
+}
+
+function start() {
+  if (window.stream) {
+    window.stream.getTracks().forEach(function(track) {
+      track.stop();
+    });
+  }
+  //var audioSource = audioInputSelect.value;
+  var videoSource = videoSelect.value;
+  console.log("videoSource : ", videoSource)
+  var constraints = {
+  //  audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
+    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+  };
+  navigator.mediaDevices.getUserMedia(constraints).
+      then(gotStream).then(gotDevices).catch(handleError);
+}
+
+//audioInputSelect.onchange = start;
+//audioOutputSelect.onchange = changeAudioDestination;
+videoSelect.onchange = start;
+
+console.log("start : ", start)
+//start();
+
+function handleError(error) {
+  console.log('navigator.getUserMedia error: ', error);
+}
 
 var canvas = document.getElementById('canvas');
 // console.log( "js - canvas : ", canvas )
@@ -142,96 +142,15 @@ var context = canvas.getContext('2d');
 
 console.log( "context : ", context )
 
-////171204
-function init(){
-
-    var scanButton = document.querySelector( '#scan1' );
-
-    if ( craftar.supportsCapture() ){
-
-        setupCapture(function( err, captureObject ){
-
-            if ( err ){
-
-                alert( 'there was an error initilizating the camera ( no device present? )' )
-                console.log( "contextWidth : ", contextWidth )
-
-
-            }else{
-
-                var captureDivElement = document.getElementById( 'videoCapture' );
-                //var canvas = document.getElementById('canvas');
-                // console.log( "js - canvas : ", canvas )
-                //var context = canvas.getContext('2d');
-                //captureDivElement.appendChild( captureObject.domElement );
-                var tetete = captureDivElement.appendChild( captureObject.domElement ); //이 부분이 추가되는 순간 느려짐, 위의 captureDivElement.appendChild( captureObject.domElement ); 대신 이부분만 남김 -> 문제 해결됨 171204
-                //var contextHeight = captureDivElement.domElement.videoHeight;
-                console.log( "captureDivElement.domElement : ", tetete )
-                tetete.setAttribute("id", "video");
-                tetete.setAttribute("style", "margin:0 auto; width:141px; height:188px;");
-
-                console.log( "tetete id : ", tetete.getAttribute("id") )
-                console.log( "tetete style : ", tetete.getAttribute("style") )
-                //console.log( "contextHeight : ", contextHeight )
-                //console.log( "captureDivElement : ", captureDivElement )
-
-
-
-
-            }
-
-        });
-
-    }else{
-
-        alert("This browser don't support HTML5 features needed for the capture mode");
-
-    }
-
-};
-
-
-window.addEventListener("load", init, false);
-
-function setupCapture( callback ){
-console.log( "setupCapture : ", setupCapture )
-    var capture = new craftar.Capture();
-
-    capture.addListener('started', function(){
-
-        callback( null, capture );
-
-    });
-
-    capture.addListener('error', function( error ){
-
-        callback( error, capture );
-
-    });
-
-    capture.start();
-
-}
-
-////171204 end
-
-/* 171204 function findPosition(){ 안으로 옮김
-var video = document.getElementById('video');
-console.log("video : ", video);
-*/
-
-
-
+var video = document.getElementById('videoCapture');
 // console.log( "js - video : ", video )
 var th = 20
 // 17.10.06 14:40 아무래도 여기가 비코드 스캔하여 값을 만드는 곳일 듯. 나머지는 내가 수정할 필요가 없고, 여기가 핵심이 될것 같다라는 생각.
 // 기존 며칠간 한 것 처럼, JSON 파일에 저장되던 DB를 모두 MONGODB로 바꾸고, 일부 필요한 것은 추가(예를들어 로그인)하고, 이부분의 스캔 형태를 사각형이 아닌
 //그리고 사각형의 한 변의 크기보다 작은 지름을 갖는 사이즈의 원의 형태를 갖도록 하여 스캔확룰을 보다 높이는(아마도 높아질 것이라 예측) 것이 10월 20일 전후 까지의 목표
 function findPosition(){
-  var video = document.getElementById('video');
-  console.log("video : ", video);
-  console.log("findPosition.context videoHeight : ", video.videoHeight)
-  console.log("findPosition.context videoWidth : ", video.videoWidth)
+  console.log("context:", video.videoHeight)
+  console.log("context:", video.videoWidth)
 
   context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
 
@@ -334,14 +253,14 @@ document.getElementById("snap").addEventListener("click", function() {
 
 });
 
-document.getElementById("videoCapture").addEventListener("click", function() {
+document.getElementById("video").addEventListener("click", function() {
 	findPosition()
 });
 
 
 //video와 snap은 scan div로 묶여 있음
 $(document).ready(function(){
-  $("#videoCapture").click(function(){
+  $("#video").click(function(){
     $("#scan").hide();
     $("#view").show();
   });
@@ -798,7 +717,7 @@ if(document.getElementById("tile9").style.background == "white") a[8] =0*/
 //시작하면서 숨길 요쇼들 - 1.스캔화면, 2.스캔버튼, 이후 세팅버튼 누르면 스캔버튼 생기고,세팅화면은 스대로 남아있고, 세팅버튼 사라짐, 이후 스캔버튼 누르면, 세팅화면 사라지고 스캔화면으로 변하고, 스캔버튼 사라짐
 window.onload = function(){
 $("#setButton").hide();
-//$("#view").hide();
+$("#view").hide();
 $("#scan").hide();
 
 };

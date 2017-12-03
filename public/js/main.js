@@ -13,11 +13,24 @@
                 if ( err ){
 
                     alert( 'there was an error initilizating the camera ( no device present? )' )
+                    console.log( "contextWidth : ", contextWidth )
+
 
                 }else{
 
                     var captureDivElement = document.getElementById( 'videoCapture' );
+                    //var canvas = document.getElementById('canvas');
+                    // console.log( "js - canvas : ", canvas )
+                    //var context = canvas.getContext('2d');
                     captureDivElement.appendChild( captureObject.domElement );
+                    var contextWidth = captureDivElement.domElement.videoWidth;
+                    var contextHeight = captureDivElement.domElement.videoHeight;
+                    console.log( "contextWidth : ", contextWidth )
+                    console.log( "contextHeight : ", contextHeight )
+                    console.log( "captureDivElement : ", captureDivElement )
+
+
+
 
                 }
 

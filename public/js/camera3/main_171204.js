@@ -1,5 +1,4 @@
 //public/js/camera3/main.js ver.171204//
-
 /*
 *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
 *
@@ -168,7 +167,7 @@ function init(){
                 //var contextHeight = captureDivElement.domElement.videoHeight;
                 console.log( "captureDivElement.domElement : ", tetete )
                 tetete.setAttribute("id", "video");
-                tetete.setAttribute("style", "margin:0 auto; width:141px; height:188px;");
+                tetete.setAttribute("style", "width:141px; height:188px;");
 
                 console.log( "tetete id : ", tetete.getAttribute("id") )
                 console.log( "tetete style : ", tetete.getAttribute("style") )

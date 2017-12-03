@@ -33,6 +33,23 @@ router.get("/", /*util.isLoggedin,*/ function(req, res){
   });
 });
 
+//이건 nh 테스트 용, ex, http://localhost:4000/posts/nh
+router.get("/nh", /*util.isLoggedin,*/ function(req, res){
+  var post = req.flash("post")[0] || {};
+  var errors = req.flash("errors")[0] || {};
+  var user = req.user;console.log("post.js router.get/new req.user : ", req.user);
+  var userg = req.userg;console.log("req.userg : ", req.userg);
+
+  //console.log("res.username : ", res.username);
+  Post.find({})
+  .populate("author")
+  .sort("-createdAt")
+  .exec(function(err, posts){
+    if(err) return res.json(err);
+  res.render("posts/new_nh", { post:post, posts:posts, errors:errors, user:user, userg:user });
+  });
+});
+
 
 // New
 router.get("/new", /*util.isLoggedin,*/ function(req, res){
