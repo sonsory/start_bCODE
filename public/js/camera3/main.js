@@ -267,7 +267,7 @@ function findPosition(){
 
     sum_array[x][y] = sum_array[x][y] + brightness
   }
-
+ 
   var new_array = []
   var new_array_01 = []
   var sum = 0
