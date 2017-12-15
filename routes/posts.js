@@ -118,11 +118,13 @@ router.post("/", util.isLoggedin, function(req, res){
 
 // show
 router.get("/:id", function(req,res){
+  var user = req.user;console.log("post.js router.get/new req.user : ", req.user); //171207 추가 -> 로그인 하고, post를 클릭하면 views/partials/nav.ejs 에서 user 로 인한 undefined erreor 해결 
+
   Post.findOne({_id:req.params.id})
     .populate("author")
     .exec(function(err, post){
     if(err) return res.json(err);
-    res.render("posts/show", {post:post});
+    res.render("posts/show", {post:post, user:user}); //171207 추가 -> views/partials/nav.ejs 에서 user 로 인한 undefined erreor 해결
   });
 });
 
