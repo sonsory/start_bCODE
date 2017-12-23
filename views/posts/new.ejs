@@ -307,7 +307,7 @@
 								<a href="/posts/<%= post._id %>"><div class="ellipsis"><%= post.title %></div></a>
 							</td>
 							<td class="author">
-								<div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
+								<div class="ellipsis"><%= post.author ? post.author.username : "" %><%= post.authorg ? post.authorg.username : "" %></div> <!--일반로그인과 구글로그인 둘중 하나 로그인됨 -->
 							</td>
 							<td class="date">
 								<%= post.createdDate %>

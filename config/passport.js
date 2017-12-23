@@ -69,6 +69,7 @@ function(token, refreshToken, profile, done) {
 								console.log("Userg New!!")
                 // set all of the relevant information
 								//var splitEmail = profile.emails[0].value.split("@");
+                userg.loginType      = "googleOAuth"
                 userg.googleIdNum    = profile.id;
 
                 //newUserg.google.token = token;

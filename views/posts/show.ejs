@@ -12,16 +12,28 @@
 
 			<div class="buttons">
 				<a class="btn btn-default" href="/posts">Back</a>
-				<% if(isAuthenticated && currentUser.id == post.author.id) { %>
-				<a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
-				<form action="/posts/<%= post._id %>?_method=delete" method="post">
-					<a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
-				</form>
+				<% if(post.author == null) { %> <!-- //구글 로그인이면 ~  171215 -->
+					<% if(isAuthenticated && currentUser.id == post.authorg.id){ %>
+					<a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
+					<form action="/posts/<%= post._id %>?_method=delete" method="post">
+						<a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+					</form>
+					<% } %>
+				<% } else { %> <!-- //로컬 로그인이면 ~  171215 -->
+					<% if(isAuthenticated && currentUser.id == post.author.id){ %>
+					<a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
+					<form action="/posts/<%= post._id %>?_method=delete" method="post">
+						<a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+					</form>
+					<% } %>
 				<% } %>
 			</div>
 
 			<div class="contentBox">
-				<h3 class="contentBoxTop"><%= post.title %></h3>
+				<h3 class="contentBoxTop"><%= post.title %> </h3>
+				<h4 style="text-align:right"> author : <%= post.author ? post.author.username : "" %><%= post.authorg ? post.authorg.username : "" %></h4>
+					<div></div> <!--일반로그인과 구글로그인 둘중 하나 로그인됨 -->
+
 				<div class="row">
 					<div class="col-sm-4 col-sm-push-8">
 						<div class="post-info">
@@ -31,8 +43,9 @@
 							<% } %>
 						</div> <!-- post-info end -->
 					</div> <!-- col end -->
+					<br>
 					<div class="col-sm-8 com-sm-pull-4">
-						<div class="post-body"><a href= "<%= post.link %>"><%= post.link %></a></div>
+						<div class="post-body" style="text-align:left" ><a href= "<%= post.link %>"><%= post.link %></a></div>
 					</div> <!-- col end -->
 					<div class="col-sm-8 com-sm-pull-4">
 						<div class="post-body"><%= post.bcode %></div>

@@ -11,7 +11,8 @@ var postSchema = mongoose.Schema({
   bcode:{type:String, required:[true, "bCODE is required!"]},
   link:{type:String, required:[true, "Link is required!"]},
   body:{type:String, required:[true, "Body is required!"]},
-  author:{type:mongoose.Schema.Types.ObjectId, ref:"user", required:true},
+  author:{type:mongoose.Schema.Types.ObjectId, ref:"user", /*required:true */}, //171215
+  authorg:{type:mongoose.Schema.Types.ObjectId, ref:"userg", /*required:true */}, //171215
   createdAt:{type:Date, default:Date.now},
   updatedAt:{type:Date},
 },{

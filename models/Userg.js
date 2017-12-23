@@ -5,6 +5,9 @@ mongoose.Promise = global.Promise;
 var bcrypt = require("bcrypt-nodejs");
 
 var usergSchema = mongoose.Schema({
+	loginType:{type:String
+
+	},
 	googleIdNum:{
 		type:String
 	},

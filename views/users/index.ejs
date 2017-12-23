@@ -26,14 +26,14 @@
 
 
 			<div class="contentBox">
-				<h3 class="contentBoxTop">Users</h3>
+				<h3 class="contentBoxTop">Usergs</h3>
 				<ul class="floats">
 					<% if(usergs == null || usergs.length == 0) { %>
 						<div class="noData" colspan=100> There is no userg yet.</div>
 					<% } %>
-					<% usergs.forEach(function(userg) { %>
+					<% usergs.forEach(function(usergs) { %>
 						<li>
-							<a href="/users/<%= userg.username %>"><%= userg.username %></a>
+							<a href="/users/<%= usergs.username %>"><%= usergs.username %></a>
 						</li>
 					<% }) %>
 				</ul>

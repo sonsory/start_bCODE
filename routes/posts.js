@@ -25,7 +25,7 @@ router.get("/", /*util.isLoggedin,*/ function(req, res){
 
   //console.log("res.username : ", res.username);
   Post.find({})
-  .populate("author")
+  .populate("author").populate("authorg")
   .sort("-createdAt")
   .exec(function(err, posts){
     if(err) return res.json(err);
@@ -98,8 +98,10 @@ router.get("/aaa", function(req, res){   //router.get 으로 했을때는 작동
 
 
 // create
-router.post("/", util.isLoggedin, function(req, res){
+router.post("/", util.isLoggedin, function(req, res){  // 로그인 안되어 있으면 글 안써지고 로그인 하라고 함.
   req.body.author = req.user._id;
+  req.body.authorg = req.user._id;
+  console.log("TEST : router.post() req.body.author ", req.body.author)
   //console.log("req.user._id = ", req.user._id);
   Post.create(req.body, function(err, post){
     if(err){
@@ -118,12 +120,15 @@ router.post("/", util.isLoggedin, function(req, res){
 
 // show
 router.get("/:id", function(req,res){
-  var user = req.user;console.log("post.js router.get/new req.user : ", req.user); //171207 추가 -> 로그인 하고, post를 클릭하면 views/partials/nav.ejs 에서 user 로 인한 undefined erreor 해결 
+  var user = req.user;console.log("post.js router.get/new req.user : ", req.user); //171207 추가 -> 로그인 하고, post를 클릭하면 views/partials/nav.ejs 에서 user 로 인한 undefined erreor 해결
 
   Post.findOne({_id:req.params.id})
-    .populate("author")
+    .populate("author").populate("authorg") //.populate("authorg") 를 붙이지 않은 상태에서는 아래 2가 다르게 나오고 3은 작동하지 않음
     .exec(function(err, post){
     if(err) return res.json(err);
+    console.log("TEST Show --- router.get /id post ", post) //1
+    //console.log("TEST Show --- router.get /id post.authog ", post.authorg) //2  .populate("authorg")가 없으면 단순히 ID만 나오고, 있으면, 그와 연결된 user의 정보를 .으로 접근 가능함
+    //console.log("TEST Show --- router.get /id post.authog ", post.authorg.username) //3
     res.render("posts/show", {post:post, user:user}); //171207 추가 -> views/partials/nav.ejs 에서 user 로 인한 undefined erreor 해결
   });
 });

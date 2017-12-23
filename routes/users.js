@@ -8,13 +8,17 @@ var util = require("../util");
 
 // Index
 router.route("/").get(function(req, res){
+	var usergs = [];
+	userg = Userg.find({}).exec();
+	console.log("TEST router.route. usergs ", usergs )
 	User.find({})
 	//.populate("userg")
 	.sort({username:1})
 	.exec(function(err, users){
-		if(err) return res.json(err);
-		res.render("users/index", {users:users, userg:userg});
+			if(err) return res.json(err);
+		res.render("users/index", {users:users, user:users, usergs:usergs}); // 171215 user:users 요거 임시로 에러 안나게 넣은거, 이거 빼고 http://localhost:4000/users 가면 에러남
 	});
+
 });
 
 // New
@@ -26,6 +30,7 @@ router.get("/new", function(req, res){
 
 // Create
 router.post("/", function(req, res){
+	console.log("TEST New User router.post req.body : ", req.body)
 	User.create(req.body, function(err, user){
 		if(err) {
 			req.flash("user", req.body);

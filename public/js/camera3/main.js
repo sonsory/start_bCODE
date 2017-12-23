@@ -223,7 +223,7 @@ console.log("video : ", video);
 
 
 // console.log( "js - video : ", video )
-var th = 20
+var th = 50
 // 17.10.06 14:40 아무래도 여기가 비코드 스캔하여 값을 만드는 곳일 듯. 나머지는 내가 수정할 필요가 없고, 여기가 핵심이 될것 같다라는 생각.
 // 기존 며칠간 한 것 처럼, JSON 파일에 저장되던 DB를 모두 MONGODB로 바꾸고, 일부 필요한 것은 추가(예를들어 로그인)하고, 이부분의 스캔 형태를 사각형이 아닌
 //그리고 사각형의 한 변의 크기보다 작은 지름을 갖는 사이즈의 원의 형태를 갖도록 하여 스캔확룰을 보다 높이는(아마도 높아질 것이라 예측) 것이 10월 20일 전후 까지의 목표
@@ -234,8 +234,12 @@ function findPosition(){
   console.log("findPosition.context videoWidth : ", video.videoWidth)
 
   context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
+                      //(소스, 시작점x, 시작점y, 여기까지가 기본- 여기까지만 조건에 넣었을 경우 사이지는 원본 이미지와 동일
+                      // 이후부터는 추가옵션)
+                      //(소스, 시작점x 지정, 시작점y 지정, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨)
+                       //160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
 
-  var imageData = context.getImageData(0, 0, 150, 150);
+  var imageData = context.getImageData(0, 0, 300, 300); // context.getImageData(0, 0, 150, 150);
   var data = imageData.data;
 
   var sum_array = [[0,0,0],[0,0,0],[0,0,0]]
@@ -267,7 +271,7 @@ function findPosition(){
 
     sum_array[x][y] = sum_array[x][y] + brightness
   }
- 
+
   var new_array = []
   var new_array_01 = []
   var sum = 0
@@ -302,20 +306,23 @@ function findPosition(){
   //$("#tempOutput3").val(this.text(s))  //test -   bCODE 171002
   $("#bcode").val(k) //완전 뻘짓 많이 했는데, 결국 form의 input에 값을 넣는 방법은 매우 간단, 단순했다. ㅠ
 //171006 15:15 이 아래의 코드가 현재 스캔한 비코드 값이 기존에 저장된 DB에 존재하는지 여부를 확인하고 있을 경우 해당 데이터의 링크로 이동하는 코드인 듯.
-k = [1,1,1,1,1,1,1,1,1]
- var posts ={}
- console.log("posts : ",posts)
 
- //console.log("postsAll main.js Test : ", postsAll);
- for( var i=0; i < posts.length; i++){
-   console.log("posts[i].bcode : ", posts[i].bcode, "이고, k : " );
+    //이건 테스트용 start Test
+        k = [1,1,1,1,1,1,1,1,1]
+         var posts ={}
+         console.log("posts : ",posts)
 
-   if(posts[i].bcode == k){
-     function page_replace() {
-    location.replace("posts[i].link");
-    }
-   }
-  }
+         //console.log("postsAll main.js Test : ", postsAll);
+         for( var i=0; i < posts.length; i++){
+           console.log("posts[i].bcode : ", posts[i].bcode, "이고, k : " );
+
+           if(posts[i].bcode == k){
+             function page_replace() {
+            location.replace("posts[i].link");
+            }
+           }
+          }
+      // end Test
 
   // $.ajax({   //김박사님 작
   //     type: "GET",
