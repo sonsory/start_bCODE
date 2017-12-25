@@ -75,24 +75,11 @@
 		      <div id="container1">
 <!--
 						<p>
-						<div id="container" style="text-align:center;">
-			        <div class="select" style="display: none;">
-			          <label for="audioSource"><%#Audio input source: %></label><select id="audioSource"></select>
-			        </div>
-
-			        <div class="select" style="display: none;">
-			          <label for="audioOutput"><%#Audio output destination: %></label><select id="audioOutput"></select>
-			        </div>
-
-			        <div class="select">
-			          <label for="videoSource" style= "width: 100px; display: none;" >Scan source: </label><select id="videoSource"></select> Mode Select<%#  %>
-			          <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button>
-			        </div>
-						</div>     <!-- container -->
+						< <!-- container -->
 						<p>
 							<div class="select">
-							 <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button>
-							 <button id="scan1">scan1</button>
+							 <!-- <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button> -->
+
 						 	</div>
 
 
@@ -154,8 +141,8 @@
 		<%# if ( canvas != "") {%>
 
 		        <div id="view" style="text-align:center; border:2px solid #ffffff;">
-							<p>.<p><p><p><p><p><p>
-		        <canvas id="canvas" style="width:150px;height:150px;text-align:center;border: 1px solid #ffffff;" width="150" height="150"></canvas><br>
+							<p><p><p><p><p><p><p>
+		        <canvas id="canvas" style="width:150px;height:150px;text-align:center;" width="150" height="150"></canvas><br>
 		        <button id="backToScan">backToScan</button>
 		        <div style="width:100%;" id="tempOutput"></div>
 		        <div style="width:100%;" id="tempOutput2"></div>
@@ -165,7 +152,7 @@
 
 
 		        <div id="set">
-		          <div class="container1" style="height: 300px;">
+		          <div class="container1" style="height: 50px;">
 
 		            <div class="card">
 
@@ -279,8 +266,17 @@
 					</fieldset>
 				</div>
 				<div class="buttons">
+					<span style="float:right">
 					<button type="submit" class="btn btn-default">Submit</button>
+					</span>
+					<div class="container1" style="height: 50px;"></div>
+
 				</div>
+
+
+
+
+
 				<% if(errors.unhandled){ %>
 					<div class="alert alert-danger">
 					<%= errors.unhandled %>

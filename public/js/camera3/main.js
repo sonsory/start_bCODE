@@ -164,14 +164,14 @@ function init(){
                 // console.log( "js - canvas : ", canvas )
                 //var context = canvas.getContext('2d');
                 //captureDivElement.appendChild( captureObject.domElement );
-                var tetete = captureDivElement.appendChild( captureObject.domElement ); //이 부분이 추가되는 순간 느려짐, 위의 captureDivElement.appendChild( captureObject.domElement ); 대신 이부분만 남김 -> 문제 해결됨 171204
+                var video = captureDivElement.appendChild( captureObject.domElement ); //이 부분이 추가되는 순간 느려짐, 위의 captureDivElement.appendChild( captureObject.domElement ); 대신 이부분만 남김 -> 문제 해결됨 171204
                 //var contextHeight = captureDivElement.domElement.videoHeight;
-                console.log( "captureDivElement.domElement : ", tetete )
-                tetete.setAttribute("id", "video");
-                tetete.setAttribute("style", "margin:0 auto; width:141px; height:188px;");
+                console.log( "captureDivElement.domElement : ", video )
+                video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
+                video.setAttribute("style", "margin:0 auto; width:141px; height:188px;");
 
-                console.log( "tetete id : ", tetete.getAttribute("id") )
-                console.log( "tetete style : ", tetete.getAttribute("style") )
+                console.log( "video id : ", video.getAttribute("id") )
+                console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
 
@@ -239,8 +239,12 @@ function findPosition(){
                       //(소스, 시작점x 지정, 시작점y 지정, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨)
                        //160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
 
-  var imageData = context.getImageData(0, 0, 300, 300); // context.getImageData(0, 0, 150, 150);
+  var imageData = context.getImageData(0, 0, 150, 150); // -original: context.getImageData(0, 0, 150, 150);
+  console.log("public/js/main.js imageData = ", imageData);
   var data = imageData.data;
+    console.log("public/js/main.js imageData.data = ", imageData.data);
+    console.log("public/js/main.js data = ", data.length);
+
 
   var sum_array = [[0,0,0],[0,0,0],[0,0,0]]
 
@@ -408,259 +412,6 @@ $(document).ready(function(){
   });
 });
 
-/*$(document).ready(function(){
-  $("#tile1").click(function(){
-    var color = document.getElementById("tile1").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile1").style.background = "white"
-      document.getElementById("tile11").style.background = document.getElementById("tile1").style.background
-    } else {
-      document.getElementById("tile1").style.background = "black"
-      document.getElementById("tile11").style.background = document.getElementById("tile1").style.background
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile2").click(function(){
-    var color = document.getElementById("tile2").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile2").style.background = "white"
-      document.getElementById("tile22").style.background = "white"
-    } else {
-      document.getElementById("tile2").style.background = "black"
-      document.getElementById("tile22").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile3").click(function(){
-    var color = document.getElementById("tile3").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile3").style.background = "white"
-      document.getElementById("tile33").style.background = "white"
-    } else {
-      document.getElementById("tile3").style.background = "black"
-      document.getElementById("tile33").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile4").click(function(){
-    var color = document.getElementById("tile4").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile4").style.background = "white"
-      document.getElementById("tile44").style.background = "white"
-    } else {
-      document.getElementById("tile4").style.background = "black"
-      document.getElementById("tile44").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile5").click(function(){
-    var color = document.getElementById("tile5").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile5").style.background = "white"
-      document.getElementById("tile55").style.background = "white"
-    } else {
-      document.getElementById("tile5").style.background = "black"
-      document.getElementById("tile55").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile6").click(function(){
-    var color = document.getElementById("tile6").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile6").style.background = "white"
-      document.getElementById("tile66").style.background = "white"
-    } else {
-      document.getElementById("tile6").style.background = "black"
-      document.getElementById("tile66").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile7").click(function(){
-    var color = document.getElementById("tile7").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile7").style.background = "white"
-      document.getElementById("tile77").style.background = "white"
-    } else {
-      document.getElementById("tile7").style.background = "black"
-      document.getElementById("tile77").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile8").click(function(){
-    var color = document.getElementById("tile8").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile8").style.background = "white"
-      document.getElementById("tile88").style.background = "white"
-    } else {
-      document.getElementById("tile8").style.background = "black"
-      document.getElementById("tile88").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile9").click(function(){
-    var color = document.getElementById("tile9").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile9").style.background = "white"
-      document.getElementById("tile99").style.background = "white"
-    } else {
-      document.getElementById("tile9").style.background = "black"
-      document.getElementById("tile99").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile11").click(function(){
-    var color = document.getElementById("tile11").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile11").style.background = "white"
-      document.getElementById("tile1").style.background = "white"
-      } else {
-      document.getElementById("tile11").style.background = "black"
-      document.getElementById("tile1").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile22").click(function(){
-    var color = document.getElementById("tile22").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile22").style.background = "white"
-      document.getElementById("tile2").style.background = "white"
-      } else {
-      document.getElementById("tile22").style.background = "black"
-      document.getElementById("tile2").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile33").click(function(){
-    var color = document.getElementById("tile33").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile33").style.background = "white"
-      document.getElementById("tile3").style.background = "white"
-      } else {
-      document.getElementById("tile33").style.background = "black"
-      document.getElementById("tile3").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile44").click(function(){
-    var color = document.getElementById("tile44").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile44").style.background = "white"
-      document.getElementById("tile4").style.background = "white"
-      } else {
-      document.getElementById("tile44").style.background = "black"
-      document.getElementById("tile4").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile55").click(function(){
-    var color = document.getElementById("tile55").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile55").style.background = "white"
-      document.getElementById("tile5").style.background = "white"
-      } else {
-      document.getElementById("tile55").style.background = "black"
-      document.getElementById("tile5").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile66").click(function(){
-    var color = document.getElementById("tile66").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile66").style.background = "white"
-      document.getElementById("tile6").style.background = "white"
-    } else {
-      document.getElementById("tile66").style.background = "black"
-      document.getElementById("tile6").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile77").click(function(){
-    var color = document.getElementById("tile77").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile77").style.background = "white"
-      document.getElementById("tile7").style.background = "white"
-    } else {
-      document.getElementById("tile77").style.background = "black"
-      document.getElementById("tile7").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile88").click(function(){
-    var color = document.getElementById("tile88").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile88").style.background = "white"
-      document.getElementById("tile8").style.background = "white"
-    } else {
-      document.getElementById("tile88").style.background = "black"
-      document.getElementById("tile8").style.background = "black"
-    }valSum()
-  });valSum()
-});
-
-$(document).ready(function(){
-  $("#tile99").click(function(){
-    var color = document.getElementById("tile99").style.background
-    console.log("color: ", color)
-    if (color == "black"){
-      document.getElementById("tile99").style.background = "white"
-      document.getElementById("tile9").style.background = "white"
-    } else {
-      document.getElementById("tile99").style.background = "black"
-      document.getElementById("tile9").style.background = "black"
-
-    }valSum()
-  });valSum()
-});*/
-
 
 $(document).ready(function(){
   $(".myboxVideo").click(function(){
@@ -802,10 +553,10 @@ if(document.getElementById("tile9").style.background == "white") a[8] =0*/
 
 
 
-//시작하면서 숨길 요쇼들 - 1.스캔화면, 2.스캔버튼, 이후 세팅버튼 누르면 스캔버튼 생기고,세팅화면은 스대로 남아있고, 세팅버튼 사라짐, 이후 스캔버튼 누르면, 세팅화면 사라지고 스캔화면으로 변하고, 스캔버튼 사라짐
+//시작하면서 숨길 요쇼들 - 1.스캔화면, 2.스캔버튼, 이후 세팅버튼 누르면 스캔버튼 생기고,세팅화면은 그대로 남아있고, 세팅버튼 사라짐, 이후 스캔버튼 누르면, 세팅화면 사라지고 스캔화면으로 변하고, 스캔버튼 사라짐
 window.onload = function(){
-$("#setButton").hide();
-//$("#view").hide();
-$("#scan").hide();
+$("#view").hide(); //171225 시작하면서 뷰(스캔 후 보여져할 부분이 시작하면서 보였음) 부분 사라지게함
+$("#scan").show(); //171225 시작하면서 스캔부분 보이게 함
+$("#set").hide();
 
 };

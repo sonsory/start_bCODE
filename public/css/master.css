@@ -1,5 +1,10 @@
 /* global style */
 
+canvas {
+border : black 1px solid;
+border-radius: 5px;
+}
+
 form label{
   padding: 3px;
   margin-bottom: 0;

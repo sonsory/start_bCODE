@@ -135,16 +135,18 @@ router.get("/:id", function(req,res){
 
 // Edit
 router.get("/:id/edit", util.isLoggedin, checkPermission, function(req,res){
+  var user = req.user;console.log("post.js router.get/new req.user : ", req.user); //171226 추가 -> 로그인 하고, post를 클릭하면 views/partials/nav.ejs 에서 user 로 인한 undefined erreor 해결
+
   var post = req.flash("post")[0];
   var errors = req.flash("errors")[0] || {};
   if(!post){
     Post.findOne({_id:req.params.id}, function(err, post){
       if(err) return res.json(err);
-      res.render("posts/edit", { post:post, errors:errors });
+      res.render("posts/edit", { post:post, errors:errors, user:user });
     });
   } else {
     post._id = req.params.id;
-    res.render("posts/edit", { post:post, errors:errors });
+    res.render("posts/edit", { post:post, errors:errors, user:user});
   }
 });
 

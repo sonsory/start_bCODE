@@ -54,6 +54,10 @@
 								<% } %>
 							</dvi>
 						</div>
+
+
+
+
 					</fieldset>
 				</div>
 				<div class="buttons">
@@ -65,7 +69,63 @@
 					</div>
 				<% } %>
 			</form>
+			<div id="set">
+				<div class="container1" style="height: 50px;">
+
+					<div class="card">
+
+						<div id="tile0" class="mybox" style="background:white;">
+						</div>
+
+						<div id="tile1" class="mybox" style="background:black;">
+						</div>
+
+						<div id="tile2" class="mybox" style="background:black;">
+						</div>
+
+						<div id="tile3" class="mybox" style="background:black;">
+						</div>
+
+						<div id="tile4" class="mybox" style="background:black;">
+						</div>
+
+						<div id="tile5" class="mybox" style="background:black;" >
+						</div>
+
+						<div id="tile6" class="mybox" style="background:black;">
+						</div>
+
+						<div id="tile7" class="mybox" style="background:black;">
+						</div>
+
+						<div id="tile8" class="mybox" style="background:black;">
+						</div>
+
+					</div>
+				</div>
+
+			</div>
 
 		</div> <!-- container end -->
+		<script src="/js/camera3/edit.js"></script>
+		<script>
+		var bcode1 = "<%= post.bcode %>"; // 171226 현재 bcode1은 길이 17을 갖는 어떤 값
+		var bcode = bcode1.split(',') // 171226 위의 길이 17을 갖는 값을 ,로 분리( ','이 길이 8을 차지하는 값이 었음)하여 9개의 배열로 만들어줌
+		console.log("bcode : ", bcode);
+		console.log("bcode.length : ", bcode.length);
+
+		for(i=0; i<bcode.length; i++){
+				if(bcode[i]==0){
+					$("#tile" + i).css("background", "white");
+				} else {
+					$("#tile" + i).css("background", "black");
+				}
+
+				}
+
+  //	$(document).ready(function() {		});
+	//for(i=0; i<bcode.length; i++){	//	}
+
+		</script>
 	</body>
 </html>
