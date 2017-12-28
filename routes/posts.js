@@ -59,7 +59,7 @@ router.get("/new", /*util.isLoggedin,*/ function(req, res){
   var userg = req.userg;console.log("req.userg : ", req.userg);
   //console.log("res.username : ", res.username);
   Post.find({})
-  .populate("author")
+  .populate("author").populate("authorg")
   .sort("-createdAt")
   .exec(function(err, posts){
     if(err) return res.json(err);
