@@ -223,17 +223,30 @@ console.log("video : ", video);
 
 
 // console.log( "js - video : ", video )
-var th = 50
+var th = 1 //최초 50, 값을 조절해보니, th값이 작아지면, 스캔된 이미지 사이즈가 좀더 큰 이미지가 되는 듯. 171228
 // 17.10.06 14:40 아무래도 여기가 비코드 스캔하여 값을 만드는 곳일 듯. 나머지는 내가 수정할 필요가 없고, 여기가 핵심이 될것 같다라는 생각.
 // 기존 며칠간 한 것 처럼, JSON 파일에 저장되던 DB를 모두 MONGODB로 바꾸고, 일부 필요한 것은 추가(예를들어 로그인)하고, 이부분의 스캔 형태를 사각형이 아닌
 //그리고 사각형의 한 변의 크기보다 작은 지름을 갖는 사이즈의 원의 형태를 갖도록 하여 스캔확룰을 보다 높이는(아마도 높아질 것이라 예측) 것이 10월 20일 전후 까지의 목표
+
 function findPosition(){
   var video = document.getElementById('video');
   console.log("video : ", video);
-  console.log("findPosition.context videoHeight : ", video.videoHeight)
-  console.log("findPosition.context videoWidth : ", video.videoWidth)
+  console.log("findPosition() rrr videoHeight : ", video.videoHeight)
+  console.log("findPosition()  videoWidth : ", video.videoWidth)
+  console.log("findPosition() document.body.clientWidth: ", document.body.clientWidth)
+  console.log("findPosition() document.body.clientHeight: ", document.body.clientHeigth)
+  console.log("findPosition() window.outerWidth: ", window.outerWidth)
+  console.log("findPosition() window.outerHeight: ", window.outerHeight)
+  console.log("findPosition() window.innerWidth: ", window.innerWidth)
+  console.log("findPosition() window.innerHeight: ", window.innerWidth)
+  //video.videoHeight = window.innerWidth - window.innerWidth * 0.2
+  //video.videoHeight = window.innerWidth - window.innerWidth * 0.2 //추후에는 가로세로 비율 계산해서 비율의 비로 줄게 만들것. -> 이 부분을 조절하면 스캔 되는 영역 등에 영향을 미치는 것 같음 171228
 
-  context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
+
+
+
+
+  context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 180, 180);
                       //(소스, 시작점x, 시작점y, 여기까지가 기본- 여기까지만 조건에 넣었을 경우 사이지는 원본 이미지와 동일
                       // 이후부터는 추가옵션)
                       //(소스, 시작점x 지정, 시작점y 지정, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨)
