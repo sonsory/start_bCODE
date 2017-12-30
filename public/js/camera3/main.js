@@ -174,7 +174,7 @@ function init(){
                 console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
-var a =20
+var a =17
                 var video1 = document.getElementById('video1')
                 video1.setAttribute("style", "margin:0 auto; left: 300; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ")
 
