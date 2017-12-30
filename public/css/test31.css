@@ -11,7 +11,7 @@
 .img {
   opacity: 0.25;
    filter: alpha(opacity=50);
-    position: relative; /* position: relative 를 이용할 경우, z */
+    position: relative; /* position: relative, absolute, fixed 를 이용할 경우, z-index 사용가능 */
     /*left: 95px;*/
     /*align-self: center;*/
     top:  -170px;
@@ -19,12 +19,16 @@
 }
 
 .img1 {
+
   opacity: 0.3;
    filter: alpha(opacity=50);
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(13%);
+
     /*left: 95px;
     top:  70px;*/
-    z-index: +2;
+    z-index: -2;
 }
 
 .myboxVideo { border:1px solid #46565b; border-radius: 5px;

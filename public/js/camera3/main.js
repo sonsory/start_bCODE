@@ -166,14 +166,26 @@ function init(){
                 //captureDivElement.appendChild( captureObject.domElement );
                 var video = captureDivElement.appendChild( captureObject.domElement ); //이 부분이 추가되는 순간 느려짐, 위의 captureDivElement.appendChild( captureObject.domElement ); 대신 이부분만 남김 -> 문제 해결됨 171204
                 //var contextHeight = captureDivElement.domElement.videoHeight;
+                console.log( "captureDivElement: ", captureDivElement )
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
-                video.setAttribute("style", "margin:0 auto; width:141px; height:188px;");
+                video.setAttribute("style", "margin:0 auto; width:141px; height:188px; position: relative; z-index: -3 "); //width:141px; height:188px;");
 
                 console.log( "video id : ", video.getAttribute("id") )
                 console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
+
+
+                function drawingRectangle(){ //171230
+                  var ObjCanvas, ObjContext;
+                  ObjCanvas = document.getElementById('video1');
+                  ObjContext = ObjCanvas.getContext('2d');
+                  ObjContext.fillStyle='blue';
+                  ObjContext.fillRect(0,0,0,0);
+                }
+
+                drawingRectangle();
 
 
 
@@ -247,10 +259,9 @@ function findPosition(){
 
 
   context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 180, 180);
-                      //(소스, 시작점x, 시작점y, 여기까지가 기본- 여기까지만 조건에 넣었을 경우 사이지는 원본 이미지와 동일
-                      // 이후부터는 추가옵션)
-                      //(소스, 시작점x 지정, 시작점y 지정, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨)
-                       //160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
+
+                      //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
+                       //original 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
 
   var imageData = context.getImageData(0, 0, 150, 150); // -original: context.getImageData(0, 0, 150, 150);
   console.log("public/js/main.js imageData = ", imageData);

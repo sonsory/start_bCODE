@@ -51,7 +51,7 @@ router.get("/nh", /*util.isLoggedin,*/ function(req, res){
 });
 
 
-// New
+// New //171228 처음 홈페이지 로딩화면, /new
 router.get("/new", /*util.isLoggedin,*/ function(req, res){
   var post = req.flash("post")[0] || {};
   var errors = req.flash("errors")[0] || {};
@@ -59,7 +59,7 @@ router.get("/new", /*util.isLoggedin,*/ function(req, res){
   var userg = req.userg;console.log("req.userg : ", req.userg);
   //console.log("res.username : ", res.username);
   Post.find({})
-  .populate("author").populate("authorg")
+  .populate("author").populate("authorg") //171228 .populate("authorg")
   .sort("-createdAt")
   .exec(function(err, posts){
     if(err) return res.json(err);
@@ -132,6 +132,7 @@ router.get("/:id", function(req,res){
     res.render("posts/show", {post:post, user:user}); //171207 추가 -> views/partials/nav.ejs 에서 user 로 인한 undefined erreor 해결
   });
 });
+
 
 // Edit
 router.get("/:id/edit", util.isLoggedin, checkPermission, function(req,res){

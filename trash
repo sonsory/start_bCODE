@@ -3,6 +3,12 @@
 스크립트 안의 코드도, ejs에서는 작동되는 것 같다. ejs안에서 서버, 클라이언트, 그리고 자바스크립트의 이용이 매끄럽지 못하다.
 
 
+
+
+
+<canvas id="video1" class='img1' style="width:148px; margin-left: auto;margin-right: auto;margin-top:0px;"></canvas>
+
+
 //console.log("p3 = ", p3);
 //<% console.log("aaaaaaaa") %> //  와.. 이건 또 서버에 찍히네.. 171116
 // var posts = "<%= posts %>";  //이건 오브젝트가 ejs에서 안먹힌다는 증거!! 171116
