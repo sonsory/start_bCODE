@@ -169,7 +169,7 @@ function init(){
                 console.log( "captureDivElement: ", captureDivElement )
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
-                video.setAttribute("style", "margin:0 auto; width:141px; height:188px; position: relative; z-index: -3 "); //width:141px; height:188px;");
+                video.setAttribute("style", "margin:0 auto; width:200px; height:188px; position: relative; z-index: -3 "); //width:141px; height:188px;");
 
                 console.log( "video id : ", video.getAttribute("id") )
                 console.log( "video style : ", video.getAttribute("style") )
