@@ -90,7 +90,7 @@
 							<video id="video" style="width:141px; height:188px;border: 1px solid #ffffff;"  autoplay></video><br> <%#style="width:150px; height:267px" style="width:320px; height:240px" %>
 						-->
 <canvas id="video1" class='img1' style="width:148px; height:188px" ></canvas>
-								<div id="videoCapture" style="margin:0 auto; width:300px;">
+								<div id="videoCapture" style="margin:0 auto; width:200px;">
 
 								</div>
 
@@ -141,7 +141,7 @@
 						</div> <%# container1 %>
 
 
-
+<canvas id="video2" class='img1' style="width:148px; height:188px" ></canvas>
 
 		<%# if ( canvas != "") {%>
 
@@ -331,7 +331,7 @@
 
 
 			<script>
-			function bcodeScan(){ //이건 비코드 스캔후, 현재 저장된 비코드와 비교하는 함수, 비교후 일치하는 비코드 있으면 해당 URL로 이동 bcodeScan 을 키워드로 command + shift + F 하면 bcodeScan 을 불러들이는 곳을 알 수 있음.
+			function isTherebcode(){ //이건 비코드 스캔후, 현재 저장된 비코드와 비교하는 함수, 비교후 일치하는 비코드 있으면 해당 URL로 이동 isTherebcode 을 키워드로 command + shift + F 하면 isTherebcode 을 불러들이는 곳을 알 수 있음.
 				var postsAll = <%-JSON.stringify(posts) %>
 				console.log("postsAll : ", postsAll)  //워... 어마어마한 방법을... 171116
 				for(i=0; i<postsAll.length; i++){
@@ -351,6 +351,7 @@
 					 }
 				}
 			}
+
 			</script>
 		</div> <!-- container end -->
 	</body>

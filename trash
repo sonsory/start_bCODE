@@ -3,6 +3,13 @@
 스크립트 안의 코드도, ejs에서는 작동되는 것 같다. ejs안에서 서버, 클라이언트, 그리고 자바스크립트의 이용이 매끄럽지 못하다.
 
 
+var ObjCanvas, ObjContext;
+ObjCanvas = document.getElementById('video2');
+ObjContext = ObjCanvas.getContext('2d');
+
+var video_ = document.getElementById('video');
+
+ObjContext.drawImage(video_, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 180, 180);
 
 
 

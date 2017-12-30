@@ -150,6 +150,10 @@ function init(){
     if ( craftar.supportsCapture() ){
 
         setupCapture(function( err, captureObject ){
+          console.log("main.js init() captureObject : ", captureObject)
+          console.log("main.js init() captureObject.domElement : ", captureObject.domElement)
+          console.log("main.js init() captureObject.domElement.clientHeight : ", captureObject.domElement.clientHeight)
+          console.log("main.js init() captureObject.domElement.attributes : ", captureObject.domElement.attributes[0])
 
             if ( err ){
 
@@ -176,7 +180,7 @@ function init(){
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
 
-
+                /*
                 function drawingRectangle(){ //171230
                   var ObjCanvas, ObjContext;
                   ObjCanvas = document.getElementById('video1');
@@ -186,6 +190,7 @@ function init(){
                 }
 
                 drawingRectangle();
+                */
 
 
 
@@ -223,6 +228,8 @@ console.log( "setupCapture : ", setupCapture )
 
     capture.start();
 
+    console.log("setupCapture() capture: ", capture);
+
 }
 
 ////171204 end
@@ -258,11 +265,20 @@ function findPosition(){
 
 
 
-  context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 180, 180);
+  context.drawImage(video, 400+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
 
                       //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
                        //original 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
-
+                      //context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+                      // img	     Specifies the image, canvas, or video element to use
+                      // sx	      Optional. The x coordinate where to start clipping	Play it »
+                      // sy	      Optional. The y coordinate where to start clipping	Play it »
+                      // swidth	  Optional. The width of the clipped image	Play it »
+                      // sheight	Optional. The height of the clipped image	Play it »
+                      // x	      The x coordinate where to place the image on the canvas	Play it »
+                      // y	      The y coordinate where to place the image on the canvas	Play it »
+                      // width	  Optional. The width of the image to use (stretch or reduce the image)	Play it »
+                      // height	  Optional. The height of the image to use (stretch or reduce the image)
   var imageData = context.getImageData(0, 0, 150, 150); // -original: context.getImageData(0, 0, 150, 150);
   console.log("public/js/main.js imageData = ", imageData);
   var data = imageData.data;
@@ -365,7 +381,7 @@ function findPosition(){
 
 document.getElementById("snap").addEventListener("click", function() {
   findPosition()
-  bcodeScan()
+  isTherebcode() //이건 비코드 스캔후, 현재 저장된 비코드와 비교하는 함수, 비교후 일치하는 비코드 있으면 해당 URL로 이동
 
 });
 
@@ -384,7 +400,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $("#snap").click(function(){
-    $("#scan").hide();
+    //$("#scan").hide();
     $("#view").show();
   });
 });
