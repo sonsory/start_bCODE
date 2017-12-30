@@ -266,7 +266,7 @@ function findPosition(){
 
 
 
-  context.drawImage(video, 291+th, 463+th, 120-th*2, 120-th*2, 0, 0, 100, 100);
+  context.drawImage(video, 291+th, 467+th, 120-th*2, 120-th*2, 0, 0, 130, 130);
 
                       //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
                        //original 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150);
@@ -280,7 +280,7 @@ function findPosition(){
                       // y	      The y coordinate where to place the image on the canvas	Play it »
                       // width	  Optional. The width of the image to use (stretch or reduce the image)	Play it »
                       // height	  Optional. The height of the image to use (stretch or reduce the image)
-  var imageData = context.getImageData(0, 0, 100, 100); // -original: context.getImageData(0, 0, 150, 150);
+  var imageData = context.getImageData(0, 0, 130, 130); // -original: context.getImageData(0, 0, 150, 150);
   console.log("public/js/main.js imageData = ", imageData);
   var data = imageData.data;
     console.log("public/js/main.js imageData.data = ", imageData.data);
