@@ -174,18 +174,21 @@ function init(){
                 console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
+var a =20
+                var video1 = document.getElementById('video1')
+                video1.setAttribute("style", "margin:0 auto; left: 300; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ")
 
-                /*
+
                 function drawingRectangle(){ //171230
                   var ObjCanvas, ObjContext;
                   ObjCanvas = document.getElementById('video1');
                   ObjContext = ObjCanvas.getContext('2d');
                   ObjContext.fillStyle='blue';
-                  ObjContext.fillRect(0,0,0,0);
+                  ObjContext.fillRect(0,0,200,200);
                 }
 
                 drawingRectangle();
-                */
+
 
 
 
