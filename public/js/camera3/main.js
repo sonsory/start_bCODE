@@ -286,9 +286,22 @@ function findPosition(){
                       // height	  Optional. The height of the image to use (stretch or reduce the image)
   var imageData = context.getImageData(0, 0, 150, 150); // -original: context.getImageData(0, 0, 150, 150);
   console.log("public/js/main.js imageData = ", imageData);
+
+
+  var afterImageData;
+
+  cv.cvtColor(imageData, imageData, cv.COLOR_RGBA2GRAY, 0);
+  // You can try more different parameters
+  cv.adaptiveThreshold(imageData, afterImageData, 200, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 3, 2);
+
+ var data = afterImageData.data;
+  /*
   var data = imageData.data;
     console.log("public/js/main.js imageData.data = ", imageData.data);
     console.log("public/js/main.js data = ", data.length);
+
+  */
+
 
 
   var sum_array = [[0,0,0],[0,0,0],[0,0,0]]
