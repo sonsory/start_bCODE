@@ -171,15 +171,17 @@ function init(){
                 console.log( "captureDivElement: ", captureDivElement )
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
-                video.setAttribute("style", "margin:0 auto; width:200px; position: relative; z-index: -3 "); //width:141px; height:188px;");
+                video.setAttribute("style", "margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
+
 
                 console.log( "video id : ", video.getAttribute("id") )
                 console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
-var a =35
+var a =25
                 var video1 = document.getElementById('video1')
-                video1.setAttribute("style", "margin:0 auto;  top:-150px; left: 200px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ")
+                video1.setAttribute("style", "margin:0 auto;  top:90px; left: 150px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
+                // 값 a가 달라지면, top등의 기준점이 달라짐
 
 
                 function drawingRectangle(){ //171230
@@ -187,7 +189,7 @@ var a =35
                   ObjCanvas = document.getElementById('video1');
                   ObjContext = ObjCanvas.getContext('2d');
                   ObjContext.fillStyle='white';
-                  ObjContext.fillRect(0,0,400,200);
+                  ObjContext.fillRect(0,0,400,200);  //앞의 두개는 시작점, 그 뒤의 두개는 칠하는 영역 가로 세로 인듯
                 }
 
                 drawingRectangle();
