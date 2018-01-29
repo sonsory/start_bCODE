@@ -180,8 +180,8 @@ function init(){
                 //console.log( "captureDivElement : ", captureDivElement )
 var a =25
                 var video1 = document.getElementById('video1')
-                video1.setAttribute("style", "margin:0 auto;  top:90px; left: 150px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
-                // 값 a가 달라지면, top등의 기준점이 달라짐
+                video1.setAttribute("style", "margin:0 auto;  top:90px; left: 163px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
+                // 값 a가 달라지면, top등의 기준점이 달라짐 // 18.01.30 현재 a=25, left:163px; top:90px이 적당.
 
 
                 function drawingRectangle(){ //171230
@@ -274,7 +274,7 @@ function findPosition(){
 
 
 
-  context.drawImage(video, 293+th, 480 +th, 40-th*2, 40-th*2, 0, 0, 150, 150);
+  context.drawImage(video, 300+th, 455 +th, 40-th*2, 40-th*2, 0, 0, 150, 150);
   //sx 숫자를 크게 할 수록 가로로 움직인 이미지를 캡쳐한다(캡쳐틀은 고정되어 있고 이미지가 움직인다고 생각)
  // sy 숫자를 크게 할 수록 위로 움직인 이미지를 캡쳐한다.
                       //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
