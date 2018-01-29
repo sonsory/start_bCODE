@@ -179,7 +179,7 @@ function init(){
                 //console.log( "captureDivElement : ", captureDivElement )
 var a =17
                 var video1 = document.getElementById('video1')
-                video1.setAttribute("style", "margin:0 auto;  left: 250px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ")
+                video1.setAttribute("style", "margin:0 auto;  left: 200px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ")
 
 
                 function drawingRectangle(){ //171230
