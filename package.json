@@ -32,6 +32,7 @@
     "passport-local": "^1.0.0",
     "pkg-config": "^1.1.1",
     "socket.io": "^1.7.4",
+    "webpack": "^3.10.0",
     "x-frame-options": "^1.0.0"
   }
 }

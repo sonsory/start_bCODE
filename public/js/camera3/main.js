@@ -9,7 +9,10 @@
 */
 
 
+
 'use strict';
+
+//var cv = require("opencv");
 //
 // var videoElement = document.querySelector('video');
 // // var audioInputSelect = document.querySelector('select#audioSource');
@@ -176,7 +179,7 @@ function init(){
                 //console.log( "captureDivElement : ", captureDivElement )
 var a =17
                 var video1 = document.getElementById('video1')
-                video1.setAttribute("style", "margin:0 auto; left: 300; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ")
+                video1.setAttribute("style", "margin:0 auto;  left: 400px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ")
 
 
                 function drawingRectangle(){ //171230
@@ -287,20 +290,20 @@ function findPosition(){
   var imageData = context.getImageData(0, 0, 150, 150); // -original: context.getImageData(0, 0, 150, 150);
   console.log("public/js/main.js imageData = ", imageData);
 
-
-  var afterImageData;
+/*
+  //var afterImageData;
 
   cv.cvtColor(imageData, imageData, cv.COLOR_RGBA2GRAY, 0);
   // You can try more different parameters
   cv.adaptiveThreshold(imageData, afterImageData, 200, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 3, 2);
 
- var data = afterImageData.data;
-  /*
+  var data = afterImageData.data;  */  //openCV 테스트 인듯. 180129
+
   var data = imageData.data;
     console.log("public/js/main.js imageData.data = ", imageData.data);
     console.log("public/js/main.js data = ", data.length);
 
-  */
+
 
 
 
