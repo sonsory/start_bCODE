@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon --debug ./app.js dev --watch ./query --watch ./lib --watch ./config --watch ./models --watch ./public --watch ./routes --watch ./views --watch ./middleware --watch ./app.js",
     "start": "node app.js",
+    "web": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
