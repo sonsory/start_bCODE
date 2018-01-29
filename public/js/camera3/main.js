@@ -178,9 +178,9 @@ function init(){
                 console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
-var a =25
+var a =22
                 var video1 = document.getElementById('video1')
-                video1.setAttribute("style", "margin:0 auto;  top:90px; left: 163px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
+                video1.setAttribute("style", "margin:0 auto;  top:130px; left: 169px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
                 // 값 a가 달라지면, top등의 기준점이 달라짐 // 18.01.30 현재 a=25, left:163px; top:90px이 적당.
 
 
