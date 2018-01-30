@@ -178,7 +178,8 @@ function init(){
                 console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
                 //console.log( "captureDivElement : ", captureDivElement )
-var a =22
+
+                var a =22
                 var video1 = document.getElementById('video1')
                 video1.setAttribute("style", "margin:0 auto;  top:130px; left: 169px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
                 // 값 a가 달라지면, top등의 기준점이 달라짐 // 18.01.30 현재 a=25, left:163px; top:90px이 적당.
@@ -402,9 +403,27 @@ function findPosition(){
   //   });
 }
 
+
+function wholeCapture(){
+  var canvas = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
+  // console.log( "js - canvas : ", canvas )
+  var context = canvas.getContext('2d');
+
+  console.log( "context : ", context )
+
+  var video = document.getElementById('video');
+  //context.scale(0.5, 0.5);
+  context.drawImage(video, 0, 0)/*, video.width,    video.height);/*,     // source rectangle
+                           0, 0, canvas.width, canvas.height); */
+  var img    = canvas.toDataURL("image/png");
+
+
+}
+
 document.getElementById("snap").addEventListener("click", function() {
   findPosition()
   isTherebcode() //이건 비코드 스캔후, 현재 저장된 비코드와 비교하는 함수, 비교후 일치하는 비코드 있으면 해당 URL로 이동
+  wholeCapture()
 
 });
 
@@ -414,17 +433,20 @@ document.getElementById("videoCapture").addEventListener("click", function() {
 
 
 //video와 snap은 scan div로 묶여 있음
+/*
 $(document).ready(function(){
   $("#videoCapture").click(function(){
     $("#scan").hide();
     $("#view").show();
   });
 });
+*/ //180130
 
 $(document).ready(function(){
   $("#snap").click(function(){
     //$("#scan").hide();
     $("#view").show();
+    $("#viewCapturedImg").show();
   });
 });
 
@@ -440,6 +462,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("#backToScan").click(function(){
     $("#view").hide();
+    $("#viewCapturedImg").hide();
     $("#scan").show();
   });
 });
