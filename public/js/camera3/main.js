@@ -412,9 +412,9 @@ function wholeCapture(){
   console.log( "context : ", context )
 
   var video = document.getElementById('video');
-  //context.scale(0.5, 0.5);
-  context.drawImage(video, 0, 0)/*, video.width,    video.height);/*,     // source rectangle
-                           0, 0, canvas.width, canvas.height); */
+  //context.scale(0.1, 0.1);
+  context.drawImage(video, 0, 0, canvas.width, canvas.height); /**/     
+   // source rectangle  canvas.width, canvas.height
   var img    = canvas.toDataURL("image/png");
 
 
