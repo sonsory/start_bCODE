@@ -1,3 +1,41 @@
+<div id = test>
+  <video id="video2" width="640" height="480" autoplay></video>
+  <button id="snap2">Snap Photo</button>
+  <canvas id="canvas2" width="640" height="480"></canvas>
+</div>
+
+
+
+// Grab elements, create settings, etc.
+var video = document.getElementById('video2');
+
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+}
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas2');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video2');
+
+// Trigger photo take
+document.getElementById("snap2").addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 640, 480);
+});
+
+
+-----------------------
+
+
+
+
+
 
 180130 어제 커밋 후 히로쿠 서버 작동안됨 -> 몇시간 검색, 다양한 해법 적용 -> 해결, npm update 가 문제인듯, pakage.json 내
 정의된 기준과 맞지 않을 경우 에러나는 듯. 이후 히로쿠에 업데이트 후 비코드 작동되었다가, npm install nodemon 하니.. 그 이후 비코드
@@ -5,7 +43,8 @@
 
 
 
-
+ctx.drawImage(img, 0, 0, img.width,    img.height,     // source rectangle
+                   0, 0, canvas.width, canvas.height)
 
 ,
 "engines": {
