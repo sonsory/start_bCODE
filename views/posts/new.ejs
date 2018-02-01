@@ -92,7 +92,7 @@
 							<canvas id="video1" class='img1' style="width:148px; height:188px" ></canvas>
 
 							<!-- 실시간 스트리밍 카메라 요소 위치 -->
-							<div id="videoCapture" style="margin:0 auto; "> <!---width:500px;-->
+							<div id="videoCapture" style="margin:0 auto; "> <!--width:500px;-->
 
 							</div>
 
@@ -156,14 +156,19 @@
 		        </div>
 
 						<!-- 180130 캡쳐이미지 다운로드 -->
-						<div id="viewCapturedImg" style="max-width:100%; text-align:center; border:2px solid #ffffff;">
+						<div id="viewCapturedImg" style="text-align:center; border:1px solid #black;">
+							<!-- max-width:100%; -->
 							<p><p><p><p><p><p><p>
-						<canvas id="canvasWholeCapture" style="text-align:center;" ></canvas><br>
-						<!--width: 502px; height: 402px; -->
+						<canvas id="canvasWholeCapture" style="text-align:center; width: 1025px; height: 1015px;" ></canvas><br>
+						<!--height: 402px; -->
 						<button id="downloadImg">downloadImg</button>
 
 						</div>
-
+						<div id = test>
+							<video id="video2" width="640" height="480" autoplay></video>
+							<button id="snap2">Snap Photo</button>
+							<canvas id="canvas2" width="640" height="480"></canvas>
+						</div>
 
 
 		        <div id="set">

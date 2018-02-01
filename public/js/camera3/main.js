@@ -414,12 +414,46 @@ function wholeCapture(){
 
   var video = document.getElementById('video');
   //context.scale(0.1, 0.1);
-  context.drawImage(video, 0, 0, canvas.width, canvas.height); /**/
+  console.log("##### video width : ",video.width )
+  console.log("##### video width : ",video.height )
+  console.log("##### canvas.width : ",canvas.width )
+  console.log("##### canvas.height : ",canvas.height )
+
+  context.drawImage(video, 0, 0,1205, 1015, 0, 0, canvas.width, canvas.height); /**/
    // source rectangle  canvas.width, canvas.height
+   //(video, 0, 0, video.width,    video.height, 0,0,canvas.width, canvas.height) // 1205, 1015
   var img    = canvas.toDataURL("image/png");
 
 
 }
+
+
+// Grab elements, create settings, etc.
+var video = document.getElementById('video2');
+
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+}
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas2');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video2');
+
+// Trigger photo take
+document.getElementById("snap2").addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 640, 480);
+});
+
+///
+
+
 
 document.getElementById("snap").addEventListener("click", function() {
   findPosition()
