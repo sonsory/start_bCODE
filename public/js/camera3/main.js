@@ -174,7 +174,7 @@ function init(){
                 video.setAttribute("style", "margin:0 auto; width:auto; height:auto; max-width:100%; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
     //width:200px; height:270px;
 
-
+////
                 console.log( "video id : ", video.getAttribute("id") )
                 console.log( "video style : ", video.getAttribute("style") )
                 //console.log( "contextHeight : ", contextHeight )
