@@ -146,7 +146,7 @@ function init(){
     var scanButton = document.querySelector( '#scan1' );
 
     if ( craftar.supportsCapture() ){
-
+        console.log("craftar.supportsCapture() : ", craftar.supportsCapture)
         setupCapture(function( err, captureObject ){
           console.log("main.js init() captureObject : ", captureObject)
           console.log("main.js init() captureObject.domElement : ", captureObject.domElement)
@@ -409,20 +409,22 @@ function findPosition(){
 
 
 function wholeCapture(){
-  var canvas = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
+  var canvas1 = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
   // console.log( "js - canvas : ", canvas )
-  var context = canvas.getContext('2d');
-
+  var context = canvas1.getContext('2d');
+canvas1.setAttribute("height", "1013px");
+canvas1.setAttribute("width", "1203px");
+var context = canvas1.getContext('2d');
   console.log( "context : ", context )
 
-  var video = document.getElementById('video');
+  var video1 = document.getElementById('video');
   //context.scale(0.1, 0.1);
-  console.log("##### video width : ",video.width )
-  console.log("##### video height : ",video.height )
-  console.log("##### canvas.width : ",canvas.width )
-  console.log("##### canvas.height : ",canvas.height )
+  console.log("##### video width : ",video1.width )
+  console.log("##### video height : ",video1.height )
+  console.log("##### canvas.width : ",canvas1.width )
+  console.log("##### canvas.height : ",canvas1.height )
 
-  context.drawImage(video, 0, 0, canvas.width, canvas.height); /**/
+  context.drawImage(video1, 0, 0,1205, 1015, 0, 0, 1205, 1015); /**/
    // source rectangle  canvas.width, canvas.height
    //(video, 0, 0, video.width,    video.height, 0,0,canvas.width, canvas.height) // 1205, 1015
   var img    = canvas.toDataURL("image/png");
