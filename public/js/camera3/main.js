@@ -279,7 +279,7 @@ function findPosition(){
 
 
 
-  context.drawImage(video, 335+th, 501 +th, 40-th*2, 40-th*2, 0, 0, 160, 160);
+  context.drawImage(video, 335+th, 501 +th, 40-th*2, 40-th*2, 0, 0, 450, 450);
   //sx 숫자를 크게 할 수록 가로로 움직인 이미지를 캡쳐한다(캡쳐틀은 고정되어 있고 이미지가 움직인다고 생각)
  // sy 숫자를 크게 할 수록 위로 움직인 이미지를 캡쳐한다.
                       //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
@@ -294,7 +294,7 @@ function findPosition(){
                       // y	      The y coordinate where to place the image on the canvas	Play it »
                       // width	  Optional. The width of the image to use (stretch or reduce the image)	Play it »
                       // height	  Optional. The height of the image to use (stretch or reduce the image)
-  var imageData = context.getImageData(0, 0, 150, 150); // -original: context.getImageData(0, 0, 150, 150);
+  var imageData = context.getImageData(0, 0, 450, 450); // -original: context.getImageData(0, 0, 150, 150);
   console.log("public/js/main.js imageData = ", imageData);
 
 /*
@@ -409,22 +409,22 @@ function findPosition(){
 
 
 function wholeCapture(){
-  var canvas1 = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
+  var canvas = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
   // console.log( "js - canvas : ", canvas )
-  var context = canvas1.getContext('2d');
-canvas1.setAttribute("height", "1013px");
-canvas1.setAttribute("width", "1203px");
-var context = canvas1.getContext('2d');
+  var context = canvas.getContext('2d');
+canvas.setAttribute("height", "1013px");
+canvas.setAttribute("width", "1203px");
+var context = canvas.getContext('2d');
   console.log( "context : ", context )
 
   var video1 = document.getElementById('video');
   //context.scale(0.1, 0.1);
-  console.log("##### video width : ",video1.width )
-  console.log("##### video height : ",video1.height )
-  console.log("##### canvas.width : ",canvas1.width )
-  console.log("##### canvas.height : ",canvas1.height )
+  console.log("##### video width : ",video.width )
+  console.log("##### video height : ",video.height )
+  console.log("##### canvas.width : ",canvas.width )
+  console.log("##### canvas.height : ",canvas.height )
 
-  context.drawImage(video1, 0, 0,1205, 1015, 0, 0, 1205, 1015); /**/
+  context.drawImage(video1, 0, 0, 1205, 1015); /**/
    // source rectangle  canvas.width, canvas.height
    //(video, 0, 0, video.width,    video.height, 0,0,canvas.width, canvas.height) // 1205, 1015
   var img    = canvas.toDataURL("image/png");
