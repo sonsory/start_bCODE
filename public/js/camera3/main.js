@@ -437,7 +437,7 @@ canvas.setAttribute("width", "1203px");
   console.log("wholeCapture() video.clientWidth : ",video.clientWidth )
   console.log("wholeCapture() video.clientHeight : ",video.clientHeight )
 
-  context.drawImage(video1, 0, 0, canvas.width, canvas.height); /**/
+  context.drawImage(video1, 0, 0, video.clientWidth, video.clientHeight); /**/
    // source rectangle  canvas.width, canvas.height
    //(video, 0, 0, video.width,    video.height, 0,0,canvas.width, canvas.height) // 1205, 1015
   var img    = canvas.toDataURL("image/png");
