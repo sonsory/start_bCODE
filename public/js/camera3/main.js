@@ -424,8 +424,8 @@ function wholeCapture(){
   var canvas = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
   // console.log( "js - canvas : ", canvas )
   var context = canvas.getContext('2d');
-canvas.setAttribute("height", "772px");
-canvas.setAttribute("width", "1203px");
+    canvas.setAttribute("height", video.clientHeight);
+    canvas.setAttribute("width", video.clientWidth );
   console.log( "context : ", context )
 
   var video1 = document.getElementById('video');
@@ -673,10 +673,13 @@ $("#scan").show(); //171225 시작하면서 스캔부분 보이게 함
 $("#set").hide();
 
 };
- 
+
+
+// 맨위로 올리기 버튼 180209
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
+//토글 스위치 180209
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById("myBtn").style.display = "block";
