@@ -119,14 +119,14 @@
   display: none;
   position: fixed;
   bottom: 20px;
-  right: 30px;
+  right: 20px;
   z-index: 99;
   border: none;
   outline: none;
-  background-color: red;
+  background-color: skyblue;
   color: white;
   cursor: pointer;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
 }
 
