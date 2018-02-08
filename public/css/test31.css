@@ -195,7 +195,7 @@
     height: 35px; /* 가로 최대값 설정 */
     max-width : 100%; /* 가로 최대값보다 작으면 화면 100% 차지 설정*/
     border: none;
-    background-color: #728F8C;
+    background-color: #377bb5;
     color: white;
     padding: 7px 28px;
     font-size: 16px;
@@ -205,32 +205,11 @@
 }
 
 .block:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #377bbf;
+    color: white;
 }
 
 .block:active {
-  background-color: #728F8C;
-  box-shadow: 0 1px #666;
+  background-color: #377bb5;
+  box-shadow: 0 3px #666;
   transform: translateY(1px);
-
-.button {
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
