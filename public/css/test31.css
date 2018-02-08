@@ -211,5 +211,5 @@
 
 .block:active {
   background-color: #377bb5;
-  box-shadow: 0 3px #666;
+  box-shadow: 0 1px #377bb5;
   transform: translateY(1px);

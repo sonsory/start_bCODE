@@ -168,7 +168,7 @@ function init(){
                 console.log( "captureDivElement: ", captureDivElement )
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
-                video.setAttribute("style", "margin:0 auto; width:1023px; height:auto; max-width:100%; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
+                video.setAttribute("style", "margin:0 auto; width:1023px; height:auto; max-width:100%; position: relative; z-index: -3;border: 0px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
                 //여기서 width가 디바이스의 카메라 크기를 정하는 것, 최대가 1023, 그 이하일 경우, 디바이스의 화면크게이 맞춰서 100% 180208
                 //
                 //width:200px; height:270px;
@@ -437,11 +437,15 @@ function wholeCapture(){
   console.log("wholeCapture() video.clientWidth : ",video.clientWidth )
   console.log("wholeCapture() video.clientHeight : ",video.clientHeight )
 
-  context.drawImage(video1, 0, 0, canvas.width, video.clientHeight); /**/
+  /* 굳이 context.drawImage()를 쓸 필요가 없는 듯. 걍 canvas.toDataURL 로 하는 게 더 심플 한듯 180208
+  아니... 해보니까.. 이것을 생략하면, 안되는데? */
+  context.drawImage(video1, 0, 0, canvas.width, video.clientHeight);
+
+
    // source rectangle  canvas.width, canvas.height
    //(video, 0, 0, video.width,    video.height, 0,0,canvas.width, canvas.height) // 1205, 1015
-  var img    = canvas.toDataURL("image/png");
-
+  var imgURL = canvas.toDataURL("image/png");
+  document.getElementById('canvasImg').src = imgURL;
 
 }
 

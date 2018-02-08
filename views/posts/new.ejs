@@ -98,7 +98,7 @@
 
 
 
- 		        	<div id="scan" style="text-align:center; border:1px solid #ffffff;"> <!--여기서의 div 및 id의 역할은 숨기고 보이고 하는 정도의 기능을 위함 171202-->
+ 		        	<div id="scan" style="text-align:center; border:0px solid #ffffff;"> <!--여기서의 div 및 id의 역할은 숨기고 보이고 하는 정도의 기능을 위함 171202-->
 		          <!-- 171202
 							<video id="video" style="width:141px; height:188px;border: 1px solid #ffffff;"  autoplay></video><br> <%#style="width:150px; height:267px" style="width:320px; height:240px" %>
 						-->
@@ -171,12 +171,18 @@
 		        </div>
 
 						<!-- 180130 캡쳐이미지 다운로드 -->
-						<div id="viewCapturedImg" style="text-align:center; border:1px solid #black;">
+						<!-- 180208 주석처리함-->
+						<div id="viewCapturedImg" style="text-align:center; border:1px solid #black;" >
+
 							<!-- max-width:100%; -->
 							<p><p><p><p><p><p><p>
 						<canvas id="canvasWholeCapture" style="text-align:center; max-width:100%; width: 1025px;" ></canvas><br>
 						<!--height: 402px; -->
+
+						<img id="canvasImg" alt="Right click to save me!">
+
 						<button id="downloadImg">downloadImg</button>
+
 
 						</div>
 
