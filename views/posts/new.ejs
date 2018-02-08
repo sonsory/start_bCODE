@@ -5,7 +5,8 @@
 	<head>
 		<% include ../partials/head %>
 		<% include ../partials/nav %>
-
+		<!-- 위 인클루드는 CSS에서 이것을 포함 <link rel="stylesheet" href="/css/master.css">
+		<link rel="stylesheet" href="/css/test31.css"> -->
 		<meta name="viewport" content="width=320, user-scalable=no" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Camera</title>
@@ -65,6 +66,8 @@
 
 
 	<body>
+
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 		<div class="container post post-edit">
 		<% include ./partials/header %>
 		</div>
@@ -79,7 +82,11 @@
 						<p>
 							<div class="select">
 							 <!-- <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button> -->
-
+							 	<div id="activate" class="toggle-switch" data-ts-color="green">
+								  <label for="ts4" class="ts-label">Activate Account</label>
+								  <input id="ts4" type="checkbox" hidden="hidden">
+								  <label for="ts4" class="ts-helper"></label>
+								</div>
 						 	</div>
 
 
