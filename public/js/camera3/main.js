@@ -444,10 +444,35 @@ function wholeCapture(){
 
    // source rectangle  canvas.width, canvas.height
    //(video, 0, 0, video.width,    video.height, 0,0,canvas.width, canvas.height) // 1205, 1015
+   /*
   var imgURL = canvas.toDataURL("image/png");
   document.getElementById('canvasImg').src = imgURL;
-
+  */
 }
+
+//파일다운로드  https://jsfiddle.net/AbdiasSoftware/7PRNN/   180208
+
+/**
+ * This is the function that will take care of image extracting and
+ * setting proper filename for the download.
+ * IMPORTANT: Call it from within a onclick event.
+*/
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
+/**
+ * The event handler for the link's onclick event. We give THIS as a
+ * parameter (=the link element), ID of the canvas and a filename.
+*/
+document.getElementById('download').addEventListener('click', function() {
+    downloadCanvas(this, 'canvasWholeCapture', 'bcode.png');
+}, false);
+
+/**
+ * Draw something to canvas
+ */
+
 
 
 
