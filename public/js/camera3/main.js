@@ -673,7 +673,7 @@ $("#scan").show(); //171225 시작하면서 스캔부분 보이게 함
 $("#set").hide();
 
 };
-
+ 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 

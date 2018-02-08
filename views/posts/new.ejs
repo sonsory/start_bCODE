@@ -68,9 +68,12 @@
 	<body>
 		<!-- topFunction() -->
 		<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
+
 		<div class="container post post-edit">
 		<% include ./partials/header %>
 		</div>
+
+
 
 
     <%# include ../partials/camera %>
@@ -82,12 +85,15 @@
 						<p>
 							<div class="select">
 							 <!-- <button id="scanButton">to Scan Mode</button><button id="setButton">to Setting Mode</button> -->
-							 	<div id="activate" class="toggle-switch" data-ts-color="green">
-								  <label for="ts4" class="ts-label">Activate Account</label>
-								  <input id="ts4" type="checkbox" hidden="hidden">
-								  <label for="ts4" class="ts-helper"></label>
-								</div>
+
 						 	</div>
+							<div class="onoffswitch" style="margin-left: auto;margin-right: auto;" >
+					    	<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+						    <label class="onoffswitch-label" for="myonoffswitch">
+						        <span class="onoffswitch-inner"></span>
+						        <span class="onoffswitch-switch"></span>
+						    </label>
+							</div>
 
 
 
