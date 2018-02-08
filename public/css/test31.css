@@ -185,3 +185,25 @@
     right: 0px;
 }
 /* 토글스위치 끝 */
+
+
+
+/* 비코드 스캔 버튼 */
+.block {
+    display: block;
+    width : 1025px; /* 가로 최대값 설정 */
+    max-width : 100%; /* 가로 최대값보다 작으면 화면 100% 차지 설정*/
+    border: none;
+    background-color: #728F8C;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin:0 auto; /* 버튼 가운데 정렬 */
+}
+
+.block:hover {
+    background-color: #ddd;
+    color: black;
+}
