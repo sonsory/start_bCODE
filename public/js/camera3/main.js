@@ -148,15 +148,12 @@ function init(){
     if ( craftar.supportsCapture() ){
         console.log("craftar.supportsCapture() : ", craftar.supportsCapture)
         setupCapture(function( err, captureObject ){
-          console.log("main.js init() captureObject : ", captureObject)
-          console.log("main.js init() captureObject.domElement : ", captureObject.domElement)
-          console.log("main.js init() captureObject.domElement.clientHeight : ", captureObject.domElement.clientHeight)
-          console.log("main.js init() captureObject.domElement.attributes : ", captureObject.domElement.attributes[0])
+
 
             if ( err ){
 
                 alert( 'there was an error initilizating the camera ( no device present? )' )
-                console.log( "contextWidth : ", contextWidth )
+
 
 
             }else{
@@ -172,10 +169,19 @@ function init(){
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
                 video.setAttribute("style", "margin:0 auto; width:1023px; height:auto; max-width:100%; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
-    //width:200px; height:270px;
+                //여기서 width가 디바이스의 카메라 크기를 정하는 것, 최대가 1023, 그 이하일 경우, 디바이스의 화면크게이 맞춰서 100% 180208
+                //
+                //width:200px; height:270px;
+    console.log("main.js init() captureObject : ", captureObject)
+    console.log("main.js init() captureObject.domElement : ", captureObject.domElement)
+    console.log("main.js init() captureObject.domElement.clientHeight : ", captureObject.domElement.clientHeight)
+    console.log("main.js init() captureObject.domElement.clientWidth : ", captureObject.domElement.clientWidth)
+  //틀린부분.180208  console.log("main.js init() captureObject.domElement.clientHeight : ", captureObject.domElement.style.Height)
+    console.log("main.js init() captureObject.domElement.attributes : ", captureObject.domElement.attributes[0])
+    console.log("main.js init() captureObject.domElement.style : ", captureObject.domElement.style)
 
-    console.log("##### video width : ",video.width )
-    console.log("##### video height : ",video.height )
+    console.log("##### video width : ",video.clientWidth )
+    console.log("##### video height : ",video.clientHeight )
 
 ////
                 console.log( "video id : ", video.getAttribute("id") )
@@ -216,6 +222,8 @@ function init(){
 };
 
 
+
+
 window.addEventListener("load", init, false);
 
 function setupCapture( callback ){
@@ -236,7 +244,7 @@ console.log( "setupCapture : ", setupCapture )
 
     capture.start();
 
-    console.log("setupCapture() capture: ", capture);
+    console.log("비디오 스트리밍 관련 콘솔에서 정보 보기 : setupCapture() 함수 안에서 capture: ", capture);
 
 }
 
@@ -268,10 +276,13 @@ function findPosition(){
   console.log("findPosition()  videoWidth : ", video.videoWidth)
   console.log("findPosition() document.body.clientWidth: ", document.body.clientWidth)
   console.log("findPosition() document.body.clientHeight: ", document.body.clientHeigth)
+
+      console.log("findPosition() video.clientWidth : ",video.clientWidth )
+      console.log("findPosition() video.clientHeight : ",video.clientHeight )
   console.log("findPosition() window.outerWidth: ", window.outerWidth)
   console.log("findPosition() window.outerHeight: ", window.outerHeight)
   console.log("findPosition() window.innerWidth: ", window.innerWidth)
-  console.log("findPosition() window.innerHeight: ", window.innerWidth)
+  console.log("findPosition() window.innerHeight: ", window.innerHeight)
   //video.videoHeight = window.innerWidth - window.innerWidth * 0.2
   //video.videoHeight = window.innerWidth - window.innerWidth * 0.2 //추후에는 가로세로 비율 계산해서 비율의 비로 줄게 만들것. -> 이 부분을 조절하면 스캔 되는 영역 등에 영향을 미치는 것 같음 171228
 
@@ -413,9 +424,8 @@ function wholeCapture(){
   var canvas = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
   // console.log( "js - canvas : ", canvas )
   var context = canvas.getContext('2d');
-canvas.setAttribute("height", "1013px");
+canvas.setAttribute("height", "772px");
 canvas.setAttribute("width", "1203px");
-var context = canvas.getContext('2d');
   console.log( "context : ", context )
 
   var video1 = document.getElementById('video');
@@ -424,8 +434,10 @@ var context = canvas.getContext('2d');
   console.log("##### video height : ",video.height )
   console.log("##### canvas.width : ",canvas.width )
   console.log("##### canvas.height : ",canvas.height )
+  console.log("wholeCapture() video.clientWidth : ",video.clientWidth )
+  console.log("wholeCapture() video.clientHeight : ",video.clientHeight )
 
-  context.drawImage(video1, 0, 0, 1205, 1015); /**/
+  context.drawImage(video1, 0, 0, canvas.width, canvas.height); /**/
    // source rectangle  canvas.width, canvas.height
    //(video, 0, 0, video.width,    video.height, 0,0,canvas.width, canvas.height) // 1205, 1015
   var img    = canvas.toDataURL("image/png");
