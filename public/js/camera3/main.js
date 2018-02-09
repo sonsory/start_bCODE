@@ -143,7 +143,7 @@
 ////171204
 function init(){
 
-    var scanButton = document.querySelector( '#scan1' );
+    //var scanButton = document.querySelector( '#scan' );
 
     if ( craftar.supportsCapture() ){
         console.log("craftar.supportsCapture() : ", craftar.supportsCapture)
@@ -168,9 +168,10 @@ function init(){
                 console.log( "captureDivElement: ", captureDivElement )
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
-                video.setAttribute("style", "margin:0 auto; width:2048px; height:auto;  position: relative; z-index: -3;border: 0px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
+                video.setAttribute("style", "margin:0 auto; width:546px; height:755px; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
                 //여기서 width가 디바이스의 카메라 크기를 정하는 것, 최대가 1023, 그 이하일 경우, 디바이스의 화면크게이 맞춰서 100% 180208
-                ////max-width:100%;
+                ////180209 width:1024px; max-width:100%; height:auto;
+                    // 폰에서 촬영된 영상처럼 기준 잡기위해 - 가로 세로 546*755
                 //width:200px; height:270px;
     console.log("main.js init() captureObject : ", captureObject)
     console.log("main.js init() captureObject.domElement : ", captureObject.domElement)
@@ -288,9 +289,9 @@ function findPosition(){
 
 
 
-
+//context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150); // 이것은 코드 스캔용으로 적당할 듯.
  //context.drawImage(video, 335+th, 501 +th, 450-th*2, 450-th*2, 0, 0, 480, 480); 18.02.08
-  context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150); // 이것은 코드 스캔용으로 적당할 듯.
+  context.drawImage(video, 330+th, 300+th, 160-th*2, 160-th*2, 0, 0, 150, 150); //
   //sx 숫자를 크게 할 수록 가로로 움직인 이미지를 캡쳐한다(캡쳐틀은 고정되어 있고 이미지가 움직인다고 생각)
  // sy 숫자를 크게 할 수록 위로 움직인 이미지를 캡쳐한다.
                       //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
@@ -424,8 +425,8 @@ function wholeCapture(){
   var canvas = document.getElementById('canvasWholeCapture'); //나중에 스캔이미지가 여기에 생김
   // console.log( "js - canvas : ", canvas )
   var context = canvas.getContext('2d');
-    canvas.setAttribute("height", video.clientHeight*2);
-    canvas.setAttribute("width", video.clientWidth*2 );
+    canvas.setAttribute("height", video.clientHeight);
+    canvas.setAttribute("width", video.clientWidth);
   console.log( "context : ", context )
 
   var video1 = document.getElementById('video');
@@ -439,7 +440,7 @@ function wholeCapture(){
 
   /* 굳이 context.drawImage()를 쓸 필요가 없는 듯. 걍 canvas.toDataURL 로 하는 게 더 심플 한듯 180208
   아니... 해보니까.. 이것을 생략하면, 안되는데? */
-  context.drawImage(video1, 0, 0, canvas.width*2, video.clientHeight*4);
+  context.drawImage(video1, 0, 0, canvas.width, video.clientHeight);
 
 
    // source rectangle  canvas.width, canvas.height
