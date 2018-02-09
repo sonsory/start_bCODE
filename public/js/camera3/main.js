@@ -168,7 +168,7 @@ function init(){
                 console.log( "captureDivElement: ", captureDivElement )
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
-                video.setAttribute("style", "margin:0 auto; width:1024px; max-width:100%; height:500px; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
+                video.setAttribute("style", "margin:0 auto; width:1024px; max-width:100%; height:480; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
                 //여기서 width가 디바이스의 카메라 크기를 정하는 것, 최대가 1023, 그 이하일 경우, 디바이스의 화면크게이 맞춰서 100% 180208
                 ////180209 width:1024px; max-width:100%; height:auto;
                     // 폰에서 촬영된 영상처럼 기준 잡기위해 - 가로 세로 546*755
