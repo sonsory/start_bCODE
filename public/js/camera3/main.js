@@ -66,7 +66,7 @@ function init(){
                 //업로드용 비코드 스캔부분 a의 값은 박스의 크기
                 var a = 44
                 var video1 = document.getElementById('video1')
-                video1.setAttribute("style", "margin:0 auto;  top:35px; left: 200px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
+                video1.setAttribute("style", "margin:0 auto;  top:20px; left: 200px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
                 // 값 a가 달라지면, top등의 기준점이 달라짐 // 18.01.30 현재 a=25, left:163px; top:90px이 적당.
 
 
