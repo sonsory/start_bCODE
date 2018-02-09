@@ -12,133 +12,6 @@
 
 'use strict';
 
-//var cv = require("opencv");
-//
-// var videoElement = document.querySelector('video');
-// // var audioInputSelect = document.querySelector('select#audioSource');
-// // var audioOutputSelect = document.querySelector('select#audioOutput');
-// var videoSelect = document.querySelector('select#videoSource');
-// var selectors = [videoSelect];
-// //var selectors = [audioInputSelect, audioOutputSelect, videoSelect];
-// var init = true
-//
-// function gotDevices(deviceInfos) {
-//   // Handles being called several times to update labels. Preserve values.
-//   var values = selectors.map(function(select) {
-//     return select.value;
-//   });
-//   selectors.forEach(function(select) {
-//     while (select.firstChild) {
-//       select.removeChild(select.firstChild);
-//     }
-//   });
-//   var cnt = 1
-//   for (var i = 0; i !== deviceInfos.length; ++i) {
-//     var deviceInfo = deviceInfos[i];
-//     var option = document.createElement('option');
-//     // if (deviceInfo.kind === 'audioinput') {
-//     //   option.text = deviceInfo.label ||
-//     //       'microphone ' + (audioInputSelect.length + 1);
-//     //   audioInputSelect.appendChild(option);
-//     // } else if (deviceInfo.kind === 'audiooutput') {
-//     //   option.text = deviceInfo.label || 'speaker ' +
-//     //       (audioOutputSelect.length + 1);
-//     //   audioOutputSelect.appendChild(option);
-//     // } else
-//     if (deviceInfo.kind === 'videoinput') {
-//       //option.text = deviceInfo.label || 'camera ' + (videoSelect.length + 1);
-//       option.id = "camera_" + cnt;
-//       option.text = 'Camera ' + cnt++;
-//       option.value = deviceInfo.deviceId;
-//       videoSelect.appendChild(option);
-//       console.log('video info: ', deviceInfo)
-//     } else {
-//       //console.log('Some other kind of source/device: ', deviceInfo);
-//     }
-//   }
-//   selectors.forEach(function(select, selectorIndex) {
-//     if (Array.prototype.slice.call(select.childNodes).some(function(n) {
-//       return n.value === values[selectorIndex];
-//     })) {
-//       select.value = values[selectorIndex];
-//     }
-//   });
-//
-//   if( init ){
-//     var id = $("#camera_2").val()
-//     if( id != undefined ){
-//       $("#videoSource").val(id).change()
-//     } else {
-//       start()
-//     }
-//     init = false
-//   }
-// }
-//
-// navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-//
-// // Attach audio output device to video element using device/sink ID.
-// function attachSinkId(element, sinkId) {
-//   if (typeof element.sinkId !== 'undefined') {
-//     element.setSinkId(sinkId)
-//     .then(function() {
-//       console.log('Success, audio output device attached: ' + sinkId);
-//     })
-//     .catch(function(error) {
-//       var errorMessage = error;
-//       if (error.name === 'SecurityError') {
-//         errorMessage = 'You need to use HTTPS for selecting audio output ' +
-//             'device: ' + error;
-//       }
-//       console.error(errorMessage);
-//       // Jump back to first output device in the list as it's the default.
-//       //audioOutputSelect.selectedIndex = 0;
-//     });
-//   } else {
-//     console.warn('Browser does not support output device selection.');
-//   }
-// }
-//
-// // function changeAudioDestination() {
-// //   var audioDestination = audioOutputSelect.value;
-// //   attachSinkId(videoElement, audioDestination);
-// // }
-//
-// function gotStream(stream) {
-//   window.stream = stream; // make stream available to console
-//   videoElement.srcObject = stream;
-//   // Refresh button list in case labels have become available
-//   return navigator.mediaDevices.enumerateDevices();
-// }
-//
-// function start() {
-//   if (window.stream) {
-//     window.stream.getTracks().forEach(function(track) {
-//       track.stop();
-//     });
-//   }
-//   //var audioSource = audioInputSelect.value;
-//   var videoSource = videoSelect.value;
-//   console.log("videoSource : ", videoSource)
-//   var constraints = {
-//   //  audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
-//     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
-//   };
-//   navigator.mediaDevices.getUserMedia(constraints).
-//       then(gotStream).then(gotDevices).catch(handleError);
-// }
-//
-// //audioInputSelect.onchange = start;
-// //audioOutputSelect.onchange = changeAudioDestination;
-// videoSelect.onchange = start;
-//
-// console.log("start : ", start)
-// //start();
-
-// function handleError(error) {
-//   console.log('navigator.getUserMedia error: ', error);
-// }
-
 
 ////171204
 function init(){
@@ -168,7 +41,7 @@ function init(){
                 console.log( "captureDivElement: ", captureDivElement )
                 console.log( "captureDivElement.domElement : ", video )
                 video.setAttribute("id", "video"); //html 태그의 속성 추가, 수정하는 방법
-                video.setAttribute("style", "margin:0 auto; width:420px; height:480px; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
+                video.setAttribute("style", "margin:0 auto; width:1024px; max-width:100%; height:auto; position: relative; z-index: -3;border: 1px solid gold"); //width:141px; height:188px;"); //margin:0 auto; width:200px; height:270px; position: relative; z-index: -3;border: 1px solid gold  //margin:0 auto; width:200px; position: relative; z-index: -3  원본! 180130
                 //여기서 width가 디바이스의 카메라 크기를 정하는 것, 최대가 1023, 그 이하일 경우, 디바이스의 화면크게이 맞춰서 100% 180208
                 ////180209 width:1024px; max-width:100%; height:auto;
                     // 폰에서 촬영된 영상처럼 기준 잡기위해 - 가로 세로  height:480
@@ -291,7 +164,7 @@ function findPosition(){
 
 //context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150); // 이것은 코드 스캔용으로 적당할 듯.
  //context.drawImage(video, 335+th, 501 +th, 450-th*2, 450-th*2, 0, 0, 480, 480); 18.02.08
-  context.drawImage(video, 330+th, 360+th, 160-th*2, 160-th*2, 0, 0, 150, 150); //
+  context.drawImage(video, 330+th, 460+th, 160-th*2, 160-th*2, 0, 0, 150, 150); //
   //sx 숫자를 크게 할 수록 가로로 움직인 이미지를 캡쳐한다(캡쳐틀은 고정되어 있고 이미지가 움직인다고 생각)
  // sy 숫자를 크게 할 수록 위로 움직인 이미지를 캡쳐한다.
                       //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
