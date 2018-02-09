@@ -64,7 +64,7 @@ function init(){
                 //console.log( "captureDivElement : ", captureDivElement )
 
                 //업로드용 비코드 스캔부분 a의 값은 박스의 크기
-                var a = 40
+                var a = 41
                 var video1 = document.getElementById('video1')
                 video1.setAttribute("style", "margin:0 auto;  top:25px; left: 193px; width:"+a+"px; height:"+a+"px;position: absolute; z-index: -1 ") //top의 기준은 video1 엘리먼트의 시작위치인듯.
                 // 값 a가 달라지면, top등의 기준점이 달라짐 // 18.01.30 현재 a=25, left:163px; top:90px이 적당.
@@ -165,7 +165,7 @@ function findPosition(){
 
 //context.drawImage(video, 160+th, 240+th, 160-th*2, 160-th*2, 0, 0, 150, 150); // 이것은 코드 스캔용으로 적당할 듯.
  //context.drawImage(video, 335+th, 501 +th, 450-th*2, 450-th*2, 0, 0, 480, 480); 18.02.08
-  context.drawImage(video, 361+th, 560+th, 60-th*2, 60-th*2, 0, 0, 150, 150); //
+  context.drawImage(video, 365+th, 555+th, 60-th*2, 60-th*2, 0, 0, 150, 150); //
   //sx 숫자를 크게 할 수록 가로로 움직인 이미지를 캡쳐한다(캡쳐틀은 고정되어 있고 이미지가 움직인다고 생각)
  // sy 숫자를 크게 할 수록 위로 움직인 이미지를 캡쳐한다.
                       //(소스, 클리핑 시작점x, 클리핑 시작점y, 소스의 x방향길이만큼 가져옴, 소스의 y방향길이 방향만큼 가져옴, 가져온 이미지의 새로운 x시작점 지정, 가져온 이미지의 새로운 y 시작점 지정, x방향 길이(배율조절됨), y 방향 길이(배율 조절됨) ... 배율조절 된다는게.. 내가쓴 글인데.. 뭔말..
